@@ -1,5 +1,5 @@
 # Chicken Fried Rice
-![img.png](img.png)
+![Pancake](images/ChickenFriedRice.png)
 
 ## Ingredients
 1. 2 cups cooked rice (preferably day-old; jasmine works best)
