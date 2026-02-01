@@ -1,6 +1,18 @@
 # Poha
 
+## Ingredients
 
+- Poha (Flattened rice)
+- Peanuts
+- Onion
+- Tomato
+- Green Chillies
+
+- Mustard Seeds
+- Hing (Asafoetida)
+- Turmeric Powder
+- Salt
+- Sugar
 
 ## Recipe
 1. Add oil in pan, heat and add peanuts, mustard seed, hing
