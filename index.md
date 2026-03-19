@@ -7,6 +7,7 @@
 5. ### [Tomato Soup](recipeBook/TomatoSoup.md)
 6. ### [Frittata](recipeBook/Frittata.md)
 7. ### [Poha](recipeBook/Poha.md)
+8. ### [Aloo Beans Sabzi](recipeBook/AlooBeansSabzi.md)
 8. ### [Sire Vala Pyaaz](recipeBook/SirkeValaPyaaz.md)
 
 # Cocktails
