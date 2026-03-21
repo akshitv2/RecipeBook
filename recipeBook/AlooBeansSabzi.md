@@ -1,4 +1,4 @@
-# Chicken Fried Rice
+# Aloo Beans
 ![AlooBeans](AlooBeans.png)
 
 ## Ingredients
