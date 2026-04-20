@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Gilded Glass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --accent-color: #c5a059;
+            --glass: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(197, 160, 89, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        body.scroll-enabled { overflow-y: auto; height: auto; }
+
+        /* Navigation / Header */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            z-index: 1000;
+            background: linear-gradient(to bottom, var(--bg-color), transparent);
+        }
+
+        .menu-trigger { font-size: 1.5rem; color: var(--accent-color); cursor: pointer; }
+        .pantry-link {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--accent-color); text-decoration: none;
+            border: 1px solid var(--border-gold); padding: 5px 12px; border-radius: 20px;
+        }
+
+        /* Hamburger Sidebar */
+        #sidebar {
+            position: fixed;
+            top: 0; left: -100%;
+            width: 80%; max-width: 300px; height: 100%;
+            background: #151515; z-index: 2000;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 80px 30px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        }
+        #sidebar.open { left: 0; }
+        .sidebar-item {
+            list-style: none; padding: 15px 0; border-bottom: 1px solid var(--glass);
+            font-family: 'Playfair Display', serif; font-size: 1.2rem; cursor: pointer;
+        }
+
+        /* Views */
+        .view { display: none; padding: 80px 20px 120px 20px; }
+        .view.active { display: block; }
+
+        /* Catalogue */
+        .image-wrapper {
+            width: 100%; aspect-ratio: 3/4;
+            border: 1px solid var(--border-gold);
+            overflow: hidden; border-radius: 4px;
+            position: relative; cursor: pointer;
+        }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .image-wrapper:active img { transform: scale(1.03); }
+
+        .cocktail-name { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 20px; }
+        .details-section { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+        .details-section.expanded { max-height: 2000px; }
+
+        /* Pantry Page */
+        .ingredient-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+        .ingredient-card {
+            background: var(--glass); padding: 15px; border-radius: 8px;
+            border: 1px solid transparent; text-align: center; cursor: pointer;
+        }
+        .ingredient-card.selected { border-color: var(--accent-color); background: rgba(197, 160, 89, 0.1); }
+
+        /* Floating Controls */
+        .controls {
+            position: fixed; bottom: 30px; left: 50%;
+            transform: translateX(-50%); display: flex; gap: 20px; z-index: 100;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .controls.hidden {
+            opacity: 0;
+            transform: translate(-50%, 20px);
+            pointer-events: none;
+        }
+
+        .nav-btn {
+            background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white; width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-size: 1.2rem;
+        }
+
+        .empty-state { text-align: center; padding-top: 100px; color: #666; }
+        .fade-out { opacity: 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="menu-trigger" onclick="toggleSidebar(true)">&#9776;</div>
+    <div class="pantry-link" onclick="switchView('pantry')">My Pantry</div>
+</header>
+
+<nav id="sidebar">
+    <div style="position:absolute; top:20px; right:20px; font-size:1.5rem" onclick="toggleSidebar(false)">&times;</div>
+    <h2 style="font-family:'Playfair Display'; margin-bottom:20px; color:var(--accent-color)">Catalogue</h2>
+    <ul id="sidebar-list"></ul>
+</nav>
+
+<div id="view-catalogue" class="view active">
+    <div id="main-content">
+        <div class="cocktail-card" id="card">
+            <div class="image-wrapper" onclick="toggleDetails(true)">
+                <img src="" id="cocktail-img">
+            </div>
+            <div class="cocktail-name" id="cocktail-name"></div>
+            <div style="font-size:0.7rem; color:var(--accent-color); letter-spacing:2px; margin-bottom:10px;">TAP FOR RECIPE</div>
+
+            <div class="details-section" id="details">
+                <div style="padding: 20px 0;">
+                    <div id="cocktail-ingredients" style="font-style:italic; margin-bottom:15px; color:#ccc;"></div>
+                    <div id="cocktail-desc" style="color:#999; margin-bottom:30px; line-height:1.6;"></div>
+                    <h3 style="font-family:'Playfair Display'; color:var(--accent-color); margin-bottom:15px;">Preparation</h3>
+                    <div id="recipe-container"></div>
+                    <button onclick="toggleDetails(false)" style="margin-top:40px; background:none; border:1px solid var(--glass); color:#666; padding:10px 20px; width:100%; border-radius:4px;">Close Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="empty-notice" class="empty-state" style="display:none;">No cocktails match your pantry.</div>
+</div>
+
+<div id="view-pantry" class="view">
+    <h2 style="font-family:'Playfair Display'; font-size: 2rem;">Your Pantry</h2>
+    <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">Select available ingredients to filter the menu.</p>
+    <div class="ingredient-grid" id="ingredient-grid"></div>
+    <button onclick="switchView('catalogue')" style="width:100%; margin-top:30px; padding:15px; background:var(--accent-color); border:none; border-radius:4px; font-weight:bold; color:#000;">Save & View Menu</button>
+</div>
+
+<div class="controls" id="nav-controls">
+    <div class="nav-btn" onclick="changeCocktail(-1)">&#10094;</div>
+    <div class="nav-btn" onclick="changeCocktail(1)">&#10095;</div>
+</div>
+
+<script>
+    const cocktails = [
+        { name: "Midnight Negroni", image: "https://images.unsplash.com/photo-1573500881269-cc906666838d?w=800", base: ["Gin", "Vermouth", "Campari"], desc: "A bold, bitter classic refined with high-altitude botanical gin and scorched orange.", recipe: ["Chill a rocks glass.", "Stir ingredients with ice for 30s.", "Strain and garnish."] },
+        { name: "Saffron Sour", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800", base: ["Bourbon", "Lemon", "Honey", "Egg"], desc: "Velvety smooth and visually stunning. The earthy saffron balances sharp citrus.", recipe: ["Dry shake ingredients.", "Add ice and shake again.", "Double strain into a coupe."] },
+        { name: "The Velvet Moss", image: "https://images.unsplash.com/photo-1536935338218-d413d88e7a43?w=800", base: ["Mezcal", "Chartreuse", "Lime"], desc: "A smoke-forward herbal masterpiece with a refreshing garden finish.", recipe: ["Shake all with ice.", "Fine strain into a chilled glass.", "Garnish with a basil leaf."] }
+    ];
+
+    let filteredList = [...cocktails];
+    let currentIndex = 0;
+    let selectedIngredients = JSON.parse(sessionStorage.getItem('pantry')) || [];
+
+    // Navigation Logic
+    function switchView(view) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(`view-${view}`).classList.add('active');
+        const controls = document.getElementById('nav-controls');
+
+        if (view === 'catalogue') {
+            applyFilter();
+            controls.classList.remove('hidden');
+            toggleDetails(false);
+        } else {
+            controls.classList.add('hidden');
+        }
+    }
+
+    function toggleSidebar(open) {
+        document.getElementById('sidebar').classList.toggle('open', open);
+    }
+
+    // --- The Fix: Toggle Details & Hide Controls ---
+    function toggleDetails(open) {
+        const details = document.getElementById('details');
+        const controls = document.getElementById('nav-controls');
+
+        if (open && !details.classList.contains('expanded')) {
+            details.classList.add('expanded');
+            controls.classList.add('hidden'); // Hide buttons
+            document.body.classList.add('scroll-enabled'); // Unlock scroll
+            history.pushState({view: 'details'}, '');
+            setTimeout(() => window.scrollBy({ top: 350, behavior: 'smooth' }), 300);
+        } else {
+            details.classList.remove('expanded');
+            controls.classList.remove('hidden'); // Show buttons
+            document.body.classList.remove('scroll-enabled'); // Lock scroll
+            window.scrollTo(0, 0);
+        }
+    }
+
+    // Sidebar/Pantry initialization
+    function initSidebar() {
+        const list = document.getElementById('sidebar-list');
+        list.innerHTML = cocktails.map(c => `
+            <li class="sidebar-item" onclick="jumpToCocktail('${c.name}')">${c.name}</li>
+        `).join('');
+    }
+
+    function jumpToCocktail(name) {
+        switchView('catalogue');
+        const index = filteredList.findIndex(c => c.name === name);
+        if (index !== -1) { currentIndex = index; updateDisplay(); }
+        toggleSidebar(false);
+    }
+
+    function initPantry() {
+        const allIngredients = [...new Set(cocktails.flatMap(c => c.base))];
+        const grid = document.getElementById('ingredient-grid');
+        grid.innerHTML = allIngredients.sort().map(ing => `
+            <div class="ingredient-card ${selectedIngredients.includes(ing) ? 'selected' : ''}"
+                 onclick="toggleIngredient('${ing}', this)">
+                ${ing}
+            </div>
+        `).join('');
+    }
+
+    function toggleIngredient(ing, el) {
+        if (selectedIngredients.includes(ing)) {
+            selectedIngredients = selectedIngredients.filter(i => i !== ing);
+            el.classList.remove('selected');
+        } else {
+            selectedIngredients.push(ing);
+            el.classList.add('selected');
+        }
+        sessionStorage.setItem('pantry', JSON.stringify(selectedIngredients));
+    }
+
+    function applyFilter() {
+        filteredList = selectedIngredients.length === 0 ? [...cocktails] :
+            cocktails.filter(c => c.base.every(ing => selectedIngredients.includes(ing)));
+
+        currentIndex = 0;
+        document.getElementById('main-content').style.display = filteredList.length ? 'block' : 'none';
+        document.getElementById('empty-notice').style.display = filteredList.length ? 'none' : 'block';
+        if (filteredList.length) updateDisplay();
+    }
+
+    function updateDisplay() {
+        const item = filteredList[currentIndex];
+        const card = document.getElementById('card');
+        card.classList.add('fade-out');
+
+        setTimeout(() => {
+            document.getElementById('cocktail-img').src = item.image;
+            document.getElementById('cocktail-name').innerText = item.name;
+            document.getElementById('cocktail-ingredients').innerText = item.base.join(' • ');
+            document.getElementById('cocktail-desc').innerText = item.desc;
+            document.getElementById('recipe-container').innerHTML = item.recipe.map((r, i) =>
+                `<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9rem;">
+                    <span style="color:var(--accent-color); margin-right:10px;">0${i+1}</span> ${r}
+                </div>`).join('');
+            card.classList.remove('fade-out');
+        }, 300);
+    }
+
+    function changeCocktail(dir) {
+        if (filteredList.length <= 1) return;
+        currentIndex = (currentIndex + dir + filteredList.length) % filteredList.length;
+        toggleDetails(false);
+        updateDisplay();
+    }
+
+    // Gestures
+    let startX = 0;
+    document.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    document.addEventListener('touchend', e => {
+        if (document.body.classList.contains('scroll-enabled')) return;
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 60) changeCocktail(diff > 0 ? 1 : -1);
+    });
+
+    window.onpopstate = () => toggleDetails(false);
+
+    initSidebar();
+    initPantry();
+    applyFilter();
+</script>
+
+</body>
+</html>

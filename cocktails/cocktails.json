@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Old Fashioned",
+    "image": "/cocktails/images/OldFashioned.png",
+    "base": ["Bourbon or Rye Whiskey", "Sugar", "Angostura Bitters"],
+    "ingredients": "45ml Bourbon or Rye Whiskey, 1 Sugar Cube, 2 dashes Angostura Bitters, Water",
+    "desc": "A foundational whiskey cocktail that balances sweetness, bitterness, and spirit strength.",
+    "recipe": [
+      "Place a sugar cube in an old-fashioned glass and saturate with 2 dashes of bitters and a few dashes of water.",
+      "Muddle the sugar until dissolved.",
+      "Fill the glass with ice cubes and add 45ml of whiskey.",
+      "Stir gently and garnish with an orange slice and a cocktail cherry."
+    ]
+  },
+  {
+    "name": "Negroni",
+    "image": "/cocktails/images/Negroni.png",
+    "base": ["Gin", "Campari", "Sweet Red Vermouth"],
+    "ingredients": "30ml Gin, 30ml Campari, 30ml Sweet Red Vermouth",
+    "desc": "An iconic Italian aperitivo known for its vibrant red color and perfectly balanced bitter-sweet profile.",
+    "recipe": [
+      "Pour 30ml gin, 30ml Campari, and 30ml sweet vermouth into an old-fashioned glass filled with ice.",
+      "Stir gently for 30 seconds to chill and achieve proper dilution.",
+      "Express the oils of an orange peel over the glass.",
+      "Garnish with the orange peel or half an orange slice."
+    ]
+  },
+  {
+    "name": "Dry Martini",
+    "image": "/cocktails/images/DryMartini.png",
+    "base": ["Gin", "Dry Vermouth"],
+    "ingredients": "60ml Gin, 10ml Dry Vermouth",
+    "desc": "The quintessential sophisticated cocktail, highlighting the botanical profile of dry gin.",
+    "recipe": [
+      "Pour 60ml gin and 10ml dry vermouth into a mixing glass filled with ice cubes.",
+      "Stir well for about 30 seconds until the glass is very cold.",
+      "Strain into a chilled martini glass.",
+      "Garnish with a green olive or a twist of lemon peel."
+    ]
+  },
+  {
+    "name": "Manhattan",
+    "image": "/cocktails/images/Manhattan.png",
+    "base": ["Rye Whiskey", "Sweet Red Vermouth", "Angostura Bitters"],
+    "ingredients": "50ml Rye Whiskey, 20ml Sweet Red Vermouth, 1 dash Angostura Bitters",
+    "desc": "A smooth, spirit-forward classic that showcases the spice of rye whiskey tempered by herbal vermouth.",
+    "recipe": [
+      "Combine 50ml rye whiskey, 20ml sweet vermouth, and 1 dash of bitters in a mixing glass with ice.",
+      "Stir until thoroughly chilled.",
+      "Strain into a chilled coupe or cocktail glass.",
+      "Garnish with a single maraschino cherry."
+    ]
+  },
+  {
+    "name": "Daiquiri",
+    "image": "/cocktails/images/Daiquiri.png",
+    "base": ["White Rum", "Lime Juice", "Sugar"],
+    "ingredients": "60ml White Rum, 20ml Fresh Lime Juice, 2 bar spoons Superfine Sugar",
+    "desc": "A crisp, refreshing Cuban classic that relies on the perfect ratio of rum to citrus.",
+    "recipe": [
+      "Add 2 bar spoons of sugar and 20ml fresh lime juice to a cocktail shaker; stir to dissolve.",
+      "Add 60ml white rum and fill the shaker with ice.",
+      "Shake vigorously for 15 seconds.",
+      "Double strain into a chilled cocktail glass."
+    ]
+  },
+  {
+    "name": "Margarita",
+    "image": "/cocktails/images/Margarita.png",
+    "base": ["Tequila", "Triple Sec", "Lime Juice"],
+    "ingredients": "50ml Tequila (100% Agave), 20ml Triple Sec, 15ml Fresh Lime Juice",
+    "desc": "The most popular tequila cocktail in the world, balancing sour, sweet, and salty notes.",
+    "recipe": [
+      "Rim a chilled glass with salt using a lime wedge.",
+      "Add 50ml tequila, 20ml triple sec, and 15ml lime juice to a shaker with ice.",
+      "Shake well until the shaker is frosted.",
+      "Strain into the prepared glass over fresh ice or served neat."
+    ]
+  },
+  {
+    "name": "Espresso Martini",
+    "image": "/cocktails/images/EspressoMartini.png",
+    "base": ["Vodka", "Coffee Liqueur", "Espresso"],
+    "ingredients": "50ml Vodka, 30ml Coffee Liqueur, 10ml Sugar Syrup, 1 shot Fresh Espresso",
+    "desc": "A modern classic providing a cold, caffeinated kick with a signature frothy head.",
+    "recipe": [
+      "Add 50ml vodka, 30ml coffee liqueur, 10ml sugar syrup, and a fresh shot of espresso to a shaker.",
+      "Fill with ice and shake hard to create a thick foam.",
+      "Strain immediately into a chilled martini glass.",
+      "Garnish with three coffee beans in a petal formation."
+    ]
+  },
+  {
+    "name": "Mojito",
+    "image": "/cocktails/images/Mojito.png",
+    "base": ["White Rum", "Lime Juice", "Mint", "Sugar", "Soda Water"],
+    "ingredients": "45ml White Rum, 20ml Fresh Lime Juice, 6 Mint Sprigs, 2 tsp White Sugar, Soda Water",
+    "desc": "A vibrant, minty highball that is a staple of Cuban cocktail culture.",
+    "recipe": [
+      "Muddle 6 mint sprigs with 2 tsp sugar and 20ml lime juice in a highball glass.",
+      "Add a splash of soda water and fill the glass with cracked ice.",
+      "Pour in 45ml rum and stir well.",
+      "Top with more soda water and garnish with a mint sprig."
+    ]
+  },
+  {
+    "name": "Whiskey Sour",
+    "image": "/cocktails/images/WhiskeySour.png",
+    "base": ["Bourbon Whiskey", "Lemon Juice", "Simple Syrup"],
+    "ingredients": "45ml Bourbon Whiskey, 30ml Fresh Lemon Juice, 15ml Simple Syrup, 1 bar spoon Egg White",
+    "desc": "A rich, silky cocktail that balances the bite of bourbon with tart citrus.",
+    "recipe": [
+      "Combine 45ml bourbon, 30ml lemon juice, 15ml syrup, and egg white in a shaker.",
+      "Shake without ice first (dry shake) to create foam.",
+      "Add ice and shake again (wet shake) until cold.",
+      "Strain into a chilled glass and garnish with a cherry."
+    ]
+  },
+  {
+    "name": "Cosmopolitan",
+    "image": "/cocktails/images/Cosmopolitan.png",
+    "base": ["Vodka Citron", "Cointreau", "Lime Juice", "Cranberry Juice"],
+    "ingredients": "40ml Vodka Citron, 15ml Cointreau, 15ml Fresh Lime Juice, 30ml Cranberry Juice",
+    "desc": "A stylish, tart-sweet cocktail made famous by modern pop culture.",
+    "recipe": [
+      "Add 40ml vodka, 15ml Cointreau, 15ml lime juice, and 30ml cranberry juice to a shaker.",
+      "Fill with ice and shake vigorously.",
+      "Double strain into a large chilled cocktail glass.",
+      "Garnish with a lime wheel or flamed orange zest."
+    ]
+  }
+]

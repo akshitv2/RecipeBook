@@ -10,5 +10,4 @@
 8. ### [Aloo Beans Sabzi](recipeBook/AlooBeansSabzi.md)
 8. ### [Sire Vala Pyaaz](recipeBook/SirkeValaPyaaz.md)
 
-# Cocktails
-1. ### [Irish COffee](cocktails/IrishCoffee.md)
+# [Cocktails](cocktails.html)

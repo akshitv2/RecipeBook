@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gilded Glass | Cocktail Catalogue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --text-color: #e0e0e0;
+            --accent-color: #c5a059; /* Champagne Gold */
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Catalogue Layout */
+        .catalogue-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 100px; /* Space for buttons */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+        }
+
+        /* Product Card */
+        .cocktail-card {
+            width: 100%;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            overflow: hidden;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .image-wrapper:active img {
+            transform: scale(1.05);
+        }
+
+        .cocktail-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-top: 20px;
+            border-bottom: 1px solid var(--glass);
+            padding-bottom: 10px;
+        }
+
+        /* Details Section (Scrollable) */
+        .details-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .details-section.expanded {
+            max-height: 1000px; /* Large enough to fit content */
+        }
+
+        .content-inner {
+            padding: 20px 0;
+            line-height: 1.6;
+        }
+
+        .ingredients {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .description {
+            font-weight: 300;
+            color: #aaa;
+        }
+
+        /* Translucent Controls */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animations */
+        .fade-out { opacity: 0; }
+
+        .hint-text {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="catalogue-container">
+    <header>
+        <h1>The Gilded Glass</h1>
+    </header>
+
+    <div class="cocktail-card" id="card">
+        <div class="image-wrapper" onclick="toggleDetails()">
+            <img src="" id="cocktail-img" alt="Cocktail">
+        </div>
+        <div class="cocktail-name" id="cocktail-name"></div>
+        <div class="hint-text">Tap image for details</div>
+
+        <div class="details-section" id="details">
+            <div class="content-inner">
+                <div class="ingredients" id="cocktail-ingredients"></div>
+                <div class="description" id="cocktail-desc"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="controls">
+    <div class="nav-btn" onclick="changeCocktail(-1)">&#10094;</div>
+    <div class="nav-btn" onclick="changeCocktail(1)">&#10095;</div>
+</div>
+
+<script>
+    const cocktails = [
+        {
+            name: "Midnight Negroni",
+            image: "https://images.unsplash.com/photo-1573500881269-cc906666838d?w=800",
+            ingredients: "Gin, Sweet Vermouth, Campari, Orange Twist",
+            desc: "A bold, bitter classic refined with high-altitude botanical gin and a scorched orange peel for deep aromatic complexity."
+        },
+        {
+            name: "Saffron Sour",
+            image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800",
+            ingredients: "Bourbon, Lemon, Honey-Saffron Syrup, Egg White",
+            desc: "Velvety smooth and visually stunning. The earthy saffron balances the sharp citrus for a decadent golden-hour sipper."
+        },
+        {
+            name: "The Velvet Moss",
+            image: "https://images.unsplash.com/photo-1536935338218-d413d88e7a43?w=800",
+            ingredients: "Mezcal, Chartreuse, Lime, Cucumber, Basil",
+            desc: "A smoke-forward herbal masterpiece. Crisp cucumber and fresh basil provide a refreshing garden finish to the complex agave spirit."
+        }
+    ];
+
+    let currentIndex = 0;
+
+    function updateDisplay() {
+        const card = document.getElementById('card');
+        const details = document.getElementById('details');
+
+        // Reset details state
+        details.classList.remove('expanded');
+
+        // Fade animation
+        card.classList.add('fade-out');
+
+        setTimeout(() => {
+            const item = cocktails[currentIndex];
+            document.getElementById('cocktail-img').src = item.image;
+            document.getElementById('cocktail-name').innerText = item.name;
+            document.getElementById('cocktail-ingredients').innerText = item.ingredients;
+            document.getElementById('cocktail-desc').innerText = item.desc;
+
+            card.classList.remove('fade-out');
+        }, 400);
+    }
+
+    function changeCocktail(dir) {
+        currentIndex += dir;
+        if (currentIndex < 0) currentIndex = cocktails.length - 1;
+        if (currentIndex >= cocktails.length) currentIndex = 0;
+        updateDisplay();
+    }
+
+    function toggleDetails() {
+        const details = document.getElementById('details');
+        details.classList.toggle('expanded');
+
+        // Scroll down slightly if opening
+        if (details.classList.contains('expanded')) {
+            setTimeout(() => {
+                window.scrollBy({ top: 250, behavior: 'smooth' });
+            }, 300);
+        }
+    }
+
+    // Init
+    updateDisplay();
+</script>
+
+</body>
+</html>
