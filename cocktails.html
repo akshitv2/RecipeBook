@@ -188,6 +188,7 @@
             initSidebar();
             initPantry();
             applyFilter();
+            initImages();
         } catch (e) { console.error("Bar closed: Load error."); }
     }
 
@@ -260,6 +261,7 @@
         const item = filteredList[currentIndex];
         const card = document.getElementById('card');
         card.classList.add('fade-out');
+        document.getElementById('cocktail-img').src = item.image;
         setTimeout(() => {
             document.getElementById('cocktail-img').src = item.image;
             document.getElementById('cocktail-name').innerText = item.name;
@@ -270,7 +272,7 @@
                     <span style="color:var(--accent-color); margin-right:10px;">0${i+1}</span> ${r}
                 </div>`).join('');
             card.classList.remove('fade-out');
-        }, 300);
+        }, 5);
     }
 
     function changeCocktail(dir) {
@@ -306,6 +308,16 @@
 
     window.onpopstate = () => toggleDetails(false);
     init();
+    function initImages(){
+        const imagesToPreload = allCocktails.map(item => item.image);
+        imagesToPreload.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+    }
 </script>
 
 </body>
