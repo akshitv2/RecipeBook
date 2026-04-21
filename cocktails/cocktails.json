@@ -1,12 +1,13 @@
 [
   {
     "name": "Old Fashioned",
-    "image": "/RecipeBook/cocktails/images/OldFashioned.png",
+    "image": "cocktails/images/OldFashioned.png",
     "base": ["Bourbon or Rye Whiskey", "Sugar", "Angostura Bitters"],
     "ingredients": "45ml Bourbon or Rye Whiskey, 1 Sugar Cube, 2 dashes Angostura Bitters, Water",
     "desc": "A foundational whiskey cocktail that balances sweetness, bitterness, and spirit strength.",
     "recipe": [
       "Place a sugar cube in an old-fashioned glass and saturate with 2 dashes of bitters and a few dashes of water.",
+      "In case of non bitters use an orange or lemon zest twisted over the glass or muddle orange slice in the glass with sugar",
       "Muddle the sugar until dissolved.",
       "Fill the glass with ice cubes and add 45ml of whiskey.",
       "Stir gently and garnish with an orange slice and a cocktail cherry."
@@ -14,7 +15,7 @@
   },
   {
     "name": "Negroni",
-    "image": "/RecipeBook/cocktails/images/Negroni.png",
+    "image": "cocktails/images/Negroni.png",
     "base": ["Gin", "Campari", "Sweet Red Vermouth"],
     "ingredients": "30ml Gin, 30ml Campari, 30ml Sweet Red Vermouth",
     "desc": "An iconic Italian aperitivo known for its vibrant red color and perfectly balanced bitter-sweet profile.",
@@ -27,7 +28,7 @@
   },
   {
     "name": "Dry Martini",
-    "image": "/RecipeBook/cocktails/images/DryMartini.png",
+    "image": "cocktails/images/DryMartini.png",
     "base": ["Gin", "Dry Vermouth"],
     "ingredients": "60ml Gin, 10ml Dry Vermouth",
     "desc": "The quintessential sophisticated cocktail, highlighting the botanical profile of dry gin.",
@@ -35,12 +36,13 @@
       "Pour 60ml gin and 10ml dry vermouth into a mixing glass filled with ice cubes.",
       "Stir well for about 30 seconds until the glass is very cold.",
       "Strain into a chilled martini glass.",
-      "Garnish with a green olive or a twist of lemon peel."
+      "Garnish with a green olive or a twist of lemon peel.",
+      "Substitutions: Vermouth with dry white wine or sake"
     ]
   },
   {
     "name": "Manhattan",
-    "image": "/RecipeBook/cocktails/images/Manhattan.png",
+    "image": "cocktails/images/Manhattan.png",
     "base": ["Rye Whiskey", "Sweet Red Vermouth", "Angostura Bitters"],
     "ingredients": "50ml Rye Whiskey, 20ml Sweet Red Vermouth, 1 dash Angostura Bitters",
     "desc": "A smooth, spirit-forward classic that showcases the spice of rye whiskey tempered by herbal vermouth.",
@@ -52,8 +54,22 @@
     ]
   },
   {
+    "name": "New York Sour",
+    "image": "cocktails/images/missing.png",
+    "base": ["Bourbon Whiskey", "Red Wine"],
+    "ingredients": "60ml Whiskey, 30ml Fresh Lemon Juice, 22.5ml Simple Syrup, 15ml Fruity Red Wine, 1 Egg White (optional)",
+    "desc": "A sophisticated variation of the Whiskey Sour featuring a striking red wine float that adds a fruity aromatic layer.",
+    "recipe": [
+      "Add whiskey, lemon juice, simple syrup, and egg white to a shaker.",
+      "Dry shake without ice to emulsify the egg white.",
+      "Add ice and shake again until thoroughly chilled.",
+      "Strain into a rocks glass over fresh ice.",
+      "Slowly pour the red wine over the back of a bar spoon so it floats on the surface."
+    ]
+  },
+  {
     "name": "Daiquiri",
-    "image": "/RecipeBook/cocktails/images/Daiquiri.png",
+    "image": "cocktails/images/Daiquiri.png",
     "base": ["White Rum", "Lime Juice", "Sugar"],
     "ingredients": "60ml White Rum, 20ml Fresh Lime Juice, 2 bar spoons Superfine Sugar",
     "desc": "A crisp, refreshing Cuban classic that relies on the perfect ratio of rum to citrus.",
@@ -66,7 +82,7 @@
   },
   {
     "name": "Margarita",
-    "image": "/RecipeBook/cocktails/images/Margarita.png",
+    "image": "cocktails/images/Margarita.png",
     "base": ["Tequila", "Triple Sec", "Lime Juice"],
     "ingredients": "50ml Tequila (100% Agave), 20ml Triple Sec, 15ml Fresh Lime Juice",
     "desc": "The most popular tequila cocktail in the world, balancing sour, sweet, and salty notes.",
@@ -79,7 +95,7 @@
   },
   {
     "name": "Espresso Martini",
-    "image": "/RecipeBook/cocktails/images/EspressoMartini.png",
+    "image": "cocktails/images/EspressoMartini.png",
     "base": ["Vodka", "Coffee Liqueur", "Espresso"],
     "ingredients": "50ml Vodka, 30ml Coffee Liqueur, 10ml Sugar Syrup, 1 shot Fresh Espresso",
     "desc": "A modern classic providing a cold, caffeinated kick with a signature frothy head.",
@@ -92,7 +108,7 @@
   },
   {
     "name": "Mojito",
-    "image": "/RecipeBook/cocktails/images/Mojito.png",
+    "image": "cocktails/images/Mojito.png",
     "base": ["White Rum", "Lime Juice", "Mint", "Sugar", "Soda Water"],
     "ingredients": "45ml White Rum, 20ml Fresh Lime Juice, 6 Mint Sprigs, 2 tsp White Sugar, Soda Water",
     "desc": "A vibrant, minty highball that is a staple of Cuban cocktail culture.",
@@ -105,7 +121,7 @@
   },
   {
     "name": "Whiskey Sour",
-    "image": "/RecipeBook/cocktails/images/WhiskeySour.png",
+    "image": "cocktails/images/WhiskeySour.png",
     "base": ["Bourbon Whiskey", "Lemon Juice", "Simple Syrup"],
     "ingredients": "45ml Bourbon Whiskey, 30ml Fresh Lemon Juice, 15ml Simple Syrup, 1 bar spoon Egg White",
     "desc": "A rich, silky cocktail that balances the bite of bourbon with tart citrus.",
@@ -118,7 +134,7 @@
   },
   {
     "name": "Cosmopolitan",
-    "image": "/RecipeBook/cocktails/images/Cosmopolitan.png",
+    "image": "cocktails/images/Cosmopolitan.png",
     "base": ["Vodka Citron", "Cointreau", "Lime Juice", "Cranberry Juice"],
     "ingredients": "40ml Vodka Citron, 15ml Cointreau, 15ml Fresh Lime Juice, 30ml Cranberry Juice",
     "desc": "A stylish, tart-sweet cocktail made famous by modern pop culture.",
