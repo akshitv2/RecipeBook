@@ -2,7 +2,11 @@
   {
     "name": "Old Fashioned",
     "image": "cocktails/images/OldFashioned.png",
-    "base": ["Bourbon or Rye Whiskey", "Sugar", "Angostura Bitters"],
+    "base": [
+      "Bourbon or Rye Whiskey",
+      "Sugar",
+      "Angostura Bitters"
+    ],
     "ingredients": "45ml Bourbon or Rye Whiskey, 1 Sugar Cube, 2 dashes Angostura Bitters, Water",
     "desc": "A foundational whiskey cocktail that balances sweetness, bitterness, and spirit strength.",
     "recipe": [
@@ -16,7 +20,11 @@
   {
     "name": "Negroni",
     "image": "cocktails/images/Negroni.png",
-    "base": ["Gin", "Campari", "Sweet Red Vermouth"],
+    "base": [
+      "Gin",
+      "Campari",
+      "Sweet Red Vermouth"
+    ],
     "ingredients": "30ml Gin, 30ml Campari, 30ml Sweet Red Vermouth",
     "desc": "An iconic Italian aperitivo known for its vibrant red color and perfectly balanced bitter-sweet profile.",
     "recipe": [
@@ -29,7 +37,10 @@
   {
     "name": "Dry Martini",
     "image": "cocktails/images/DryMartini.png",
-    "base": ["Gin", "Dry Vermouth"],
+    "base": [
+      "Gin",
+      "Dry Vermouth"
+    ],
     "ingredients": "60ml Gin, 10ml Dry Vermouth",
     "desc": "The quintessential sophisticated cocktail, highlighting the botanical profile of dry gin.",
     "recipe": [
@@ -43,7 +54,11 @@
   {
     "name": "Manhattan",
     "image": "cocktails/images/Manhattan.png",
-    "base": ["Rye Whiskey", "Sweet Red Vermouth", "Angostura Bitters"],
+    "base": [
+      "Rye Whiskey",
+      "Sweet Red Vermouth",
+      "Angostura Bitters"
+    ],
     "ingredients": "50ml Rye Whiskey, 20ml Sweet Red Vermouth, 1 dash Angostura Bitters",
     "desc": "A smooth, spirit-forward classic that showcases the spice of rye whiskey tempered by herbal vermouth.",
     "recipe": [
@@ -55,8 +70,11 @@
   },
   {
     "name": "New York Sour",
-    "image": "cocktails/images/missing.png",
-    "base": ["Bourbon Whiskey", "Red Wine"],
+    "image": "cocktails/images/NewYorkSour.png",
+    "base": [
+      "Bourbon Whiskey",
+      "Red Wine"
+    ],
     "ingredients": "60ml Whiskey, 30ml Fresh Lemon Juice, 22.5ml Simple Syrup, 15ml Fruity Red Wine, 1 Egg White (optional)",
     "desc": "A sophisticated variation of the Whiskey Sour featuring a striking red wine float that adds a fruity aromatic layer.",
     "recipe": [
@@ -70,7 +88,11 @@
   {
     "name": "Daiquiri",
     "image": "cocktails/images/Daiquiri.png",
-    "base": ["White Rum", "Lime Juice", "Sugar"],
+    "base": [
+      "White Rum",
+      "Lime Juice",
+      "Sugar"
+    ],
     "ingredients": "60ml White Rum, 20ml Fresh Lime Juice, 2 bar spoons Superfine Sugar",
     "desc": "A crisp, refreshing Cuban classic that relies on the perfect ratio of rum to citrus.",
     "recipe": [
@@ -83,20 +105,29 @@
   {
     "name": "Margarita",
     "image": "cocktails/images/Margarita.png",
-    "base": ["Tequila", "Triple Sec", "Lime Juice"],
+    "base": [
+      "Tequila",
+      "Triple Sec",
+      "Lime Juice"
+    ],
     "ingredients": "50ml Tequila (100% Agave), 20ml Triple Sec, 15ml Fresh Lime Juice",
     "desc": "The most popular tequila cocktail in the world, balancing sour, sweet, and salty notes.",
     "recipe": [
       "Rim a chilled glass with salt using a lime wedge.",
       "Add 50ml tequila, 20ml triple sec, and 15ml lime juice to a shaker with ice.",
       "Shake well until the shaker is frosted.",
-      "Strain into the prepared glass over fresh ice or served neat."
+      "Strain into the prepared glass over fresh ice or served neat.",
+      "Substitution: Triple Sec with Orange Juice"
     ]
   },
   {
     "name": "Espresso Martini",
     "image": "cocktails/images/EspressoMartini.png",
-    "base": ["Vodka", "Coffee Liqueur", "Espresso"],
+    "base": [
+      "Vodka",
+      "Coffee Liqueur",
+      "Espresso"
+    ],
     "ingredients": "50ml Vodka, 30ml Coffee Liqueur, 10ml Sugar Syrup, 1 shot Fresh Espresso",
     "desc": "A modern classic providing a cold, caffeinated kick with a signature frothy head.",
     "recipe": [
@@ -109,7 +140,13 @@
   {
     "name": "Mojito",
     "image": "cocktails/images/Mojito.png",
-    "base": ["White Rum", "Lime Juice", "Mint", "Sugar", "Soda Water"],
+    "base": [
+      "White Rum",
+      "Lime Juice",
+      "Mint",
+      "Sugar",
+      "Soda Water"
+    ],
     "ingredients": "45ml White Rum, 20ml Fresh Lime Juice, 6 Mint Sprigs, 2 tsp White Sugar, Soda Water",
     "desc": "A vibrant, minty highball that is a staple of Cuban cocktail culture.",
     "recipe": [
@@ -120,9 +157,47 @@
     ]
   },
   {
+    "name": "Gimlet",
+    "image": "cocktails/images/Gimlet.png",
+    "base": [
+      "Gin",
+      "Lime Juice",
+      "Simple Syrup"
+    ],
+    "ingredients": "60ml Gin, 22.5ml Fresh Lime Juice, 22.5ml Simple Syrup",
+    "desc": "A sharp, botanical classic known for its crisp balance of gin and citrus.",
+    "recipe": [
+      "Add gin, lime juice, and simple syrup into a shaker with ice.",
+      "Shake well until chilled.",
+      "Strain into a chilled cocktail glass or coupe.",
+      "Garnish with a lime wheel."
+    ]
+  },
+  {
+    "name": "Moscow Mule",
+    "image": "cocktails/images/Moscow_Mule.png",
+    "base": [
+      "Vodka",
+      "Lime Juice",
+      "Ginger Beer"
+    ],
+    "ingredients": "45ml Vodka, 15ml Fresh Lime Juice, 120ml Ginger Beer",
+    "desc": "A refreshing, spicy highball traditionally served in a copper mug.",
+    "recipe": [
+      "Squeeze lime juice into a copper mug or highball glass.",
+      "Add ice cubes and pour in the vodka.",
+      "Fill with cold ginger beer.",
+      "Stir gently and garnish with a lime slice."
+    ]
+  },
+  {
     "name": "Whiskey Sour",
     "image": "cocktails/images/WhiskeySour.png",
-    "base": ["Bourbon Whiskey", "Lemon Juice", "Simple Syrup"],
+    "base": [
+      "Bourbon Whiskey",
+      "Lemon Juice",
+      "Simple Syrup"
+    ],
     "ingredients": "45ml Bourbon Whiskey, 30ml Fresh Lemon Juice, 15ml Simple Syrup, 1 bar spoon Egg White",
     "desc": "A rich, silky cocktail that balances the bite of bourbon with tart citrus.",
     "recipe": [
@@ -135,7 +210,12 @@
   {
     "name": "Cosmopolitan",
     "image": "cocktails/images/Cosmopolitan.png",
-    "base": ["Vodka Citron", "Cointreau", "Lime Juice", "Cranberry Juice"],
+    "base": [
+      "Vodka Citron",
+      "Cointreau",
+      "Lime Juice",
+      "Cranberry Juice"
+    ],
     "ingredients": "40ml Vodka Citron, 15ml Cointreau, 15ml Fresh Lime Juice, 30ml Cranberry Juice",
     "desc": "A stylish, tart-sweet cocktail made famous by modern pop culture.",
     "recipe": [
@@ -143,6 +223,124 @@
       "Fill with ice and shake vigorously.",
       "Double strain into a large chilled cocktail glass.",
       "Garnish with a lime wheel or flamed orange zest."
+    ]
+  },
+  {
+    "name": "Dark ‘n Stormy",
+    "image": "cocktails/images/Dark_n_stormy.png",
+    "base": [
+      "Dark Rum",
+      "Ginger Beer",
+      "Lime Juice"
+    ],
+    "ingredients": "60ml Goslings Black Seal Rum, 100ml Ginger Beer, 15ml Fresh Lime Juice (optional)",
+    "desc": "A rich, spicy highball with a dramatic layered appearance.",
+    "recipe": [
+      "Fill a highball glass with ice.",
+      "Add ginger beer and lime juice.",
+      "Float the dark rum on top by pouring it slowly over the back of a spoon.",
+      "Garnish with a lime wedge."
+    ]
+  },
+  {
+    "name": "Paloma",
+    "image": "cocktails/images/Paloma.png",
+    "base": [
+      "Tequila",
+      "Grapefruit Soda",
+      "Lime Juice"
+    ],
+    "ingredients": "50ml Tequila Blanco, 10ml Fresh Lime Juice, Grapefruit Soda",
+    "desc": "Mexico's most popular cocktail, offering a tart and effervescent grapefruit profile.",
+    "recipe": [
+      "Rim a highball glass with salt (optional).",
+      "Add tequila and lime juice to the glass.",
+      "Fill with ice and top with grapefruit soda.",
+      "Stir gently and garnish with a grapefruit wedge."
+    ]
+  },
+  {
+    "name": "Bee’s Knees",
+    "image": "cocktails/images/Bees_Knees.png",
+    "base": [
+      "Gin",
+      "Lemon Juice",
+      "Honey Syrup"
+    ],
+    "ingredients": "60ml Gin, 22.5ml Fresh Lemon Juice, 22.5ml Honey Syrup",
+    "desc": "A Prohibition-era classic that is bright, citrusy, and floral.",
+    "recipe": [
+      "Combine gin, lemon juice, and honey syrup in a shaker with ice.",
+      "Shake vigorously until well-chilled.",
+      "Strain into a chilled cocktail glass.",
+      "Garnish with a lemon twist."
+    ]
+  },
+  {
+    "name": "Gold Rush",
+    "image": "cocktails/images/Gold_Rush.png",
+    "base": [
+      "Bourbon",
+      "Lemon Juice",
+      "Honey Syrup"
+    ],
+    "ingredients": "60ml Bourbon, 22.5ml Fresh Lemon Juice, 22.5ml Honey Syrup",
+    "desc": "A modern classic that adds a rich honey sweetness to the traditional whiskey sour template.",
+    "recipe": [
+      "Add bourbon, lemon juice, and honey syrup to a shaker with ice.",
+      "Shake until thoroughly chilled.",
+      "Strain into a rocks glass over a large ice cube.",
+      "Garnish with a lemon peel or ginger slice."
+    ]
+  },
+  {
+    "name": "French 75",
+    "image": "cocktails/images/French_75.png",
+    "base": [
+      "Gin",
+      "Champagne",
+      "Lemon Juice",
+      "Simple Syrup"
+    ],
+    "ingredients": "30ml Gin, 15ml Lemon Juice, 15ml Simple Syrup, 60ml Champagne",
+    "desc": "An elegant, effervescent cocktail with a powerful kick.",
+    "recipe": [
+      "Shake gin, lemon juice, and simple syrup with ice.",
+      "Strain into a champagne flute.",
+      "Top with champagne.",
+      "Garnish with a lemon spiral."
+    ]
+  },
+  {
+    "name": "Bay Breeze",
+    "image": "cocktails/images/Bay_Breeze.png",
+    "base": [
+      "Vodka",
+      "Cranberry Juice",
+      "Pineapple Juice"
+    ],
+    "ingredients": "60ml Vodka, 90ml Cranberry Juice, 30ml Pineapple Juice",
+    "desc": "A tropical, fruity highball that is easy to drink and vibrant in color.",
+    "recipe": [
+      "Fill a highball glass with ice.",
+      "Add vodka, cranberry juice, and pineapple juice.",
+      "Stir well to combine.",
+      "Garnish with a lime slice."
+    ]
+  },
+  {
+    "name": "Black Russian",
+    "image": "cocktails/images/Black_Russian.png",
+    "base": [
+      "Vodka",
+      "Coffee Liqueur"
+    ],
+    "ingredients": "50ml Vodka, 25ml Coffee Liqueur",
+    "desc": "A simple, robust duo that highlights the deep flavor of coffee.",
+    "recipe": [
+      "Pour vodka and coffee liqueur into an old fashioned glass filled with ice.",
+      "Stir gently.",
+      "Serve without garnish (optional maraschino cherry)."
     ]
   }
 ]
