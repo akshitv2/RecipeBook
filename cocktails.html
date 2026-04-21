@@ -6,6 +6,18 @@
     <title>The Gilded Glass</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Update these styles in your <style> tag */
+
+        .cocktail-card {
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+            will-change: transform, opacity;
+        }
+
+        /* Directional transition states */
+        .slide-out-left { transform: translateX(-100%); opacity: 0; }
+        .slide-out-right { transform: translateX(100%); opacity: 0; }
+        .slide-in-prep-left { transform: translateX(100%); opacity: 0; transition: none; }
+        .slide-in-prep-right { transform: translateX(-100%); opacity: 0; transition: none; }
         :root {
             --bg-color: #0d0d0d;
             --text-color: #e0e0e0;
@@ -257,29 +269,75 @@
         if (filteredList.length) updateDisplay();
     }
 
-    function updateDisplay() {
-        const item = filteredList[currentIndex];
+    // function updateDisplay() {
+    //     const item = filteredList[currentIndex];
+    //     const card = document.getElementById('card');
+    //     card.classList.add('fade-out');
+    //     document.getElementById('cocktail-img').src = item.image;
+    //     setTimeout(() => {
+    //         document.getElementById('cocktail-img').src = item.image;
+    //         document.getElementById('cocktail-name').innerText = item.name;
+    //         document.getElementById('cocktail-ingredients-display').innerText = item.ingredients;
+    //         document.getElementById('cocktail-desc').innerText = item.desc;
+    //         document.getElementById('recipe-container').innerHTML = item.recipe.map((r, i) =>
+    //             `<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9rem;">
+    //                 <span style="color:var(--accent-color); margin-right:10px;">0${i+1}</span> ${r}
+    //             </div>`).join('');
+    //         card.classList.remove('fade-out');
+    //     }, 5);
+    // }
+
+    function changeCocktail(dir) {
+        if (filteredList.length <= 1) return;
+
         const card = document.getElementById('card');
-        card.classList.add('fade-out');
-        document.getElementById('cocktail-img').src = item.image;
+
+        // 1. Determine exit direction
+        const exitClass = dir > 0 ? 'slide-out-left' : 'slide-out-right';
+        const entryPrepClass = dir > 0 ? 'slide-in-prep-left' : 'slide-in-prep-right';
+
+        // 2. Slide current card out
+        card.classList.add(exitClass);
+
         setTimeout(() => {
+            // 3. Update index and content
+            currentIndex = (currentIndex + dir + filteredList.length) % filteredList.length;
+            toggleDetails(false);
+
+            // Update data while card is invisible
+            const item = filteredList[currentIndex];
             document.getElementById('cocktail-img').src = item.image;
             document.getElementById('cocktail-name').innerText = item.name;
             document.getElementById('cocktail-ingredients-display').innerText = item.ingredients;
             document.getElementById('cocktail-desc').innerText = item.desc;
             document.getElementById('recipe-container').innerHTML = item.recipe.map((r, i) =>
                 `<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9rem;">
-                    <span style="color:var(--accent-color); margin-right:10px;">0${i+1}</span> ${r}
-                </div>`).join('');
-            card.classList.remove('fade-out');
-        }, 5);
+                <span style="color:var(--accent-color); margin-right:10px;">0${i+1}</span> ${r}
+            </div>`).join('');
+
+            // 4. Snap card to the "entry" side instantly
+            card.classList.remove(exitClass);
+            card.classList.add(entryPrepClass);
+
+            // 5. Trigger reflow to ensure the 'prep' class is applied before sliding in
+            void card.offsetWidth;
+
+            // 6. Slide card back to center
+            card.classList.remove(entryPrepClass);
+        }, 400); // Matches CSS transition duration
     }
 
-    function changeCocktail(dir) {
-        if (filteredList.length <= 1) return;
-        currentIndex = (currentIndex + dir + filteredList.length) % filteredList.length;
-        toggleDetails(false);
-        updateDisplay();
+    // Remove the old updateDisplay() call inside changeCocktail and simplify updateDisplay
+    function updateDisplay() {
+        const item = filteredList[currentIndex];
+        document.getElementById('cocktail-img').src = item.image;
+        document.getElementById('cocktail-name').innerText = item.name;
+        document.getElementById('cocktail-ingredients-display').innerText = item.ingredients;
+        document.getElementById('cocktail-desc').innerText = item.desc;
+        document.getElementById('recipe-container').innerHTML = item.recipe.map((r, i) =>
+            `<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.9rem;">
+            <span style="color:var(--accent-color); margin-right:10px;">0${i+1}</span> ${r}
+        </div>`).join('');
     }
 
     function initSidebar() {
