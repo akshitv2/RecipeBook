@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Air Fryer Chocolate Chip Cookies",
+    "time": "15 mins",
+    "description": "Quick, small-batch cookies with a crispy edge and soft center.",
+    "ingredients": ["1/2 cup butter", "1/2 cup sugar", "1 egg", "1.5 cups flour", "1/2 cup chocolate chips"],
+    "recipe": [
+      "Add half a cup of unsalted butter (ideally) to a mixing bowl",
+      "Add 1/4 cup granulated Sugar",
+      "Add 1/4 cup brown sugar",
+      "Mix using a mixer thoroughly until cloudy",
+      "Add a dash of vanilla extract",
+      "1 1/2 Cup of all purpose flour",
+      "1/4 Tbsp baking soda",
+      "1/4 Tbsp Salt",
+      "Mix again thoroughly",
+      "Add choco chips/walnuts/raisins (optional)",
+      "Take out small balls of dough and place on parchment paper on air fryer",
+      "Preheat if needed, heat for around 15 mins at 150'C",
+      "Let them cool for 5 mins and harden",
+      "Enjoy!"
+    ],
+    "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800"
+  },
+  {
+    "id": 2,
+    "name": "Aloo Beans Sabzi",
+    "time": "25 mins",
+    "description": "A classic North Indian dry stir-fry of potatoes and green beans.",
+    "ingredients": ["2 potatoes, cubed", "250g green beans, chopped", "1 tsp cumin", "1/2 tsp turmeric", "1 tsp coriander powder"],
+    "recipe": [
+      "Heat oil in a pan and temper with cumin seeds.",
+      "Add potatoes and sauté for 5 minutes until slightly browned.",
+      "Add green beans and spices; mix well.",
+      "Cover and cook on low heat until vegetables are tender."
+    ],
+    "image": "https://images.unsplash.com/photo-1589187151003-0dd34bc39238?w=800"
+  },
+  {
+    "id": 3,
+    "name": "Chicken Fried Rice",
+    "time": "20 mins",
+    "description": "Savory stir-fried rice with seasoned chicken and vegetables.",
+    "ingredients": ["2 cups cooked rice", "200g chicken breast, diced", "1/4 cup soy sauce", "2 eggs", "1/2 cup frozen peas and carrots"],
+    "recipe": [
+      "Sauté chicken in a wok until cooked through; set aside.",
+      "Scramble eggs in the same pan, then add vegetables.",
+      "Add rice, chicken, and soy sauce.",
+      "Stir-fry on high heat for 3-5 minutes until well combined."
+    ],
+    "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800"
+  },
+  {
+    "id": 4,
+    "name": "Vegetable Frittata",
+    "time": "30 mins",
+    "description": "An Italian-style open-faced omelet baked to perfection.",
+    "ingredients": ["6 eggs", "1/4 cup milk", "1/2 cup spinach", "1/4 cup feta cheese", "1 small onion, sliced"],
+    "recipe": [
+      "Whisk eggs and milk in a bowl with salt and pepper.",
+      "Sauté onions and spinach in an oven-safe skillet.",
+      "Pour egg mixture over the vegetables and sprinkle with feta.",
+      "Bake at 180°C for 15-20 minutes until the center is set."
+    ],
+    "image": "https://images.unsplash.com/photo-1510629954389-c1e0da47d415?w=800"
+  },
+  {
+    "id": 5,
+    "name": "Classic Marinara Sauce",
+    "time": "40 mins",
+    "description": "A versatile and robust tomato sauce for pasta or pizza.",
+    "ingredients": ["1 can crushed tomatoes", "3 cloves garlic, minced", "2 tbsp olive oil", "1 tsp dried oregano", "Fresh basil"],
+    "recipe": [
+      "Sauté garlic in olive oil until fragrant.",
+      "Add crushed tomatoes and oregano; season with salt.",
+      "Simmer on low heat for 30 minutes to develop flavor.",
+      "Stir in fresh basil before serving."
+    ],
+    "image": "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?w=800"
+  },
+  {
+    "id": 6,
+    "name": "Palak Paneer",
+    "time": "35 mins",
+    "description": "Indian cottage cheese cubes in a smooth, creamy spinach gravy.",
+    "ingredients": ["250g paneer, cubed", "500g spinach leaves", "1 onion, chopped", "1 tsp ginger-garlic paste", "1/2 tsp garam masala"],
+    "recipe": [
+      "Blanch spinach and blend into a smooth puree.",
+      "Sauté onions and ginger-garlic paste until golden.",
+      "Add puree and spices, simmering for 10 minutes.",
+      "Gently stir in paneer cubes and cream before serving."
+    ],
+    "image": "https://images.unsplash.com/photo-1601050638917-3d873bcadcee?w=800"
+  },
+  {
+    "id": 7,
+    "name": "Fluffy Pancakes",
+    "time": "15 mins",
+    "description": "Light and airy breakfast staples perfect for toppings.",
+    "ingredients": ["1 cup flour", "1 tbsp sugar", "1 tsp baking powder", "1 egg", "3/4 cup milk"],
+    "recipe": [
+      "Whisk dry ingredients and wet ingredients in separate bowls.",
+      "Combine until just mixed (lumps are fine).",
+      "Pour batter onto a hot greased griddle.",
+      "Flip when bubbles form on the surface and cook until golden."
+    ],
+    "image": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800"
+  },
+  {
+    "id": 8,
+    "name": "Kanda Poha",
+    "time": "15 mins",
+    "description": "A popular Maharashtrian breakfast made with flattened rice.",
+    "ingredients": ["2 cups thick poha", "1 onion, finely chopped", "1/2 tsp mustard seeds", "1/2 tsp turmeric", "Peanuts"],
+    "recipe": [
+      "Rinse poha in a colander and drain; set aside.",
+      "Heat oil and fry peanuts, then add mustard seeds and onions.",
+      "Add turmeric, salt, and poha; toss gently to combine.",
+      "Garnish with lemon juice and fresh coriander."
+    ],
+    "image": "https://images.unsplash.com/photo-1626132646529-500637532537?w=800"
+  },
+  {
+    "id": 9,
+    "name": "Sirke Vala Pyaaz",
+    "time": "10 mins",
+    "description": "Restaurant-style pink pickled vinegar onions.",
+    "ingredients": ["10-12 small pearl onions", "1/2 cup vinegar", "1/2 cup water", "1 small beetroot slice", "1 tsp salt"],
+    "recipe": [
+      "Peel onions and make a small cross-cut on top.",
+      "Mix vinegar, water, salt, and beetroot in a glass jar.",
+      "Submerge the onions in the liquid.",
+      "Let sit for 24 hours at room temperature for the best color and flavor."
+    ],
+    "image": "https://images.unsplash.com/photo-1594140720412-f0103780373b?w=800"
+  },
+  {
+    "id": 10,
+    "name": "Roasted Tomato Soup",
+    "time": "45 mins",
+    "description": "Warm, comforting soup made from fresh roasted tomatoes.",
+    "ingredients": ["6 large tomatoes", "1 onion, quartered", "4 cloves garlic", "1/2 cup veg broth", "Fresh cream"],
+    "recipe": [
+      "Roast tomatoes, onion, and garlic at 200°C for 30 minutes.",
+      "Blend the roasted vegetables until smooth.",
+      "Transfer to a pot, add broth, and simmer for 10 minutes.",
+      "Strain if desired and finish with a swirl of cream."
+    ],
+    "image": "https://images.unsplash.com/photo-1547592110-8036d3f2b96d?w=800"
+  }
+]

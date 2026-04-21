@@ -1,6 +1,6 @@
 # Fritatta
 
-![img.png](Fritatta.png)
+![img.png](images/Fritatta.png)
 ## Recipe
 1. Add around 6 eggs in mixing bowl
 2. Add 80 mL / 1/3 cup heavy cream whisk slowly careful to not introduce bubbles

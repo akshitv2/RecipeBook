@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <style>
+        :root {
+            --bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary: #2ecc71;
+            --text-main: #1a1a1a;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        #app {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- 1. Bigger Menu Items --- */
+        .recipe-list {
+            display: grid;
+            gap: 24px;
+        }
+
+        .recipe-card {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 180px; /* Increased size */
+            height: 180px; /* Increased size */
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-info h2 {
+            margin: 0 0 8px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Detail View --- */
+        #detail-view {
+            position: fixed;
+            inset: 0;
+            background: var(--card-bg);
+            z-index: 100;
+            overflow-y: auto;
+            display: none;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        #detail-view.active {
+            display: block;
+            transform: translateY(0);
+        }
+
+        .detail-hero-img {
+            width: 100%;
+            height: 45vh;
+            object-fit: cover;
+        }
+
+        .detail-content {
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .step-list {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .step-list li {
+            margin-bottom: 5px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            z-index: 110;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <h1>Recipes</h1>
+    <div id="recipe-list" class="recipe-list"></div>
+</div>
+
+<div id="detail-view">
+    <button class="back-btn" onclick="history.back()">✕</button>
+    <img id="detail-img" class="detail-hero-img" src="" alt="">
+    <div class="detail-content">
+        <h1 id="detail-name"></h1>
+        <p id="detail-meta" style="color: #666;"></p>
+
+        <h3>Ingredients</h3>
+        <ul id="detail-ingredients"></ul>
+
+        <h3>Preparation</h3>
+        <ol id="detail-steps" class="step-list"></ol>
+    </div>
+</div>
+
+<script>
+    let recipeData = [];
+
+    // 2. Load JSON Externally
+    async function loadRecipes() {
+        try {
+            const response = await fetch('recipes.json');
+            recipeData = await response.json();
+            renderList(recipeData);
+        } catch (err) {
+            console.error("Failed to load recipes. Note: Fetch requires a local server or a hosted environment.", err);
+        }
+    }
+
+    function renderList(data) {
+        const list = document.getElementById('recipe-list');
+        list.innerHTML = data.map(r => `
+            <div class="recipe-card" onclick="openRecipe(${r.id})">
+                <img src="${r.image}" class="card-img">
+                <div class="card-info">
+                    <h2>${r.name}</h2>
+                    <p>${r.time} • ${r.description}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function openRecipe(id) {
+        const recipe = recipeData.find(r => r.id === id);
+        if (!recipe) return;
+
+        document.getElementById('detail-img').src = recipe.image;
+        document.getElementById('detail-name').innerText = recipe.name;
+        document.getElementById('detail-meta').innerText = `${recipe.time} | ${recipe.description}`;
+
+        document.getElementById('detail-ingredients').innerHTML =
+            recipe.ingredients.map(i => `<li>${i}</li>`).join('');
+
+        // 3. Render recipe steps line by line
+        document.getElementById('detail-steps').innerHTML =
+            recipe.recipe.map(step => `<li>${step}</li>`).join('');
+
+        const detail = document.getElementById('detail-view');
+        detail.style.display = 'block';
+        setTimeout(() => detail.classList.add('active'), 10);
+
+        window.history.pushState({view: 'detail'}, '');
+    }
+
+    function closeRecipe() {
+        const detail = document.getElementById('detail-view');
+        detail.classList.remove('active');
+        setTimeout(() => detail.style.display = 'none', 400);
+    }
+
+    window.onpopstate = () => closeRecipe();
+
+    // Swipe back detection
+    let startX = 0;
+    document.getElementById('detail-view').addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    document.getElementById('detail-view').addEventListener('touchend', e => {
+        if (e.changedTouches[0].clientX - startX > 100) history.back();
+    });
+
+    loadRecipes();
+</script>
+
+</body>
+</html>

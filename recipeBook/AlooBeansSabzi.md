@@ -1,5 +1,5 @@
 # Aloo Beans
-![AlooBeans](AlooBeans.png)
+![AlooBeans](images/AlooBeans.png)
 
 ## Ingredients
 - French Beans,250g (trimmed and chopped into 1-inch pieces)
