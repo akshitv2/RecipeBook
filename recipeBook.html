@@ -245,7 +245,7 @@
 
     async function loadRecipes() {
         try {
-            const response = await fetch('recipes.json');
+            const response = await fetch('json/recipes.json');
             recipeData = await response.json();
             renderList(recipeData);
         } catch (err) {

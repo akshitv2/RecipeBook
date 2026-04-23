@@ -30,7 +30,7 @@
       "Let them cool for 5 mins and harden",
       "Enjoy!"
     ],
-    "image": "recipeBook/images/cookies.png"
+    "image": "images/recipes/cookies.png"
   },
   {
     "id": 2,
@@ -56,7 +56,7 @@
       "Steam cook i.e. cover pan with lid and let it cook for 10-12 mins, stir to avoid sticking",
       "Add amchur powder and garam masala and saute another 2 mins"
     ],
-    "image": "recipeBook/images/AlooBeans.png"
+    "image": "images/recipes/AlooBeans.png"
   },
   {
     "id": 3,
@@ -83,7 +83,7 @@
       "Add a dash of soy sauce and vinegar",
       "Add cooked chicken on top and let it fry well"
     ],
-    "image": "recipeBook/images/ChickenFriedRice.png"
+    "image": "images/recipes/ChickenFriedRice.png"
   },
   {
     "id": 4,
@@ -110,7 +110,7 @@
       "Add egg mix on top",
       "In the pan cook till the edge sets then move to oven sprinkle with parsley/basil"
     ],
-    "image": "recipeBook/images/Fritatta.png"
+    "image": "images/recipes/Fritatta.png"
   },
   {
     "id": 5,
@@ -136,7 +136,7 @@
       "Add pepper, oregano, red chilli flake",
       "Add basil leafs chopped up on top"
     ],
-    "image": "recipeBook/images/Marinara.png"
+    "image": "images/recipes/Marinara.png"
   },
   {
     "id": 6,
@@ -166,7 +166,7 @@
       "Add chunks of paneer and cook for 5 more mins",
       "Add Cream/yogurt/milk (optional)"
     ],
-    "image": "recipeBook/images/PalakPaneer.png"
+    "image": "images/recipes/PalakPaneer.png"
   },
   {
     "id": 7,
@@ -186,7 +186,7 @@
       "Put on Flat pan and heat until bubbly",
       "Flip"
     ],
-    "image": "recipeBook/images/Pancake.png"
+    "image": "images/recipes/Pancake.png"
   },
   {
     "id": 8,
@@ -209,7 +209,7 @@
       "Add water to poha and drain immediately to avoid sogginess",
       "Combine the two add salt, sugar, and tumeric"
     ],
-    "image": "recipeBook/images/Poha.png"
+    "image": "images/recipes/Poha.png"
   },
   {
     "id": 9,
@@ -230,7 +230,7 @@
       "Ensure onions are fully covered by the liquid",
       "Let the jar sit on your counter for 24 hours"
     ],
-    "image": "recipeBook/images/SirkeWalePyaaz.png"
+    "image": "images/recipes/SirkeWalePyaaz.png"
   },
   {
     "id": 10,
@@ -255,6 +255,6 @@
       "Let it simmer for up to 20 mins",
       "If thick, mash it in the blender"
     ],
-    "image": "recipeBook/images/TomatoSoup.png"
+    "image": "images/recipes/TomatoSoup.png"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "name": "Old Fashioned",
-    "image": "cocktails/images/OldFashioned.png",
+    "image": "images/cocktails/OldFashioned.png",
     "base": [
       "Bourbon or Rye Whiskey",
       "Sugar",
@@ -19,7 +19,7 @@
   },
   {
     "name": "Negroni",
-    "image": "cocktails/images/Negroni.png",
+    "image": "images/cocktails/Negroni.png",
     "base": [
       "Gin",
       "Campari",
@@ -36,7 +36,7 @@
   },
   {
     "name": "Dry Martini",
-    "image": "cocktails/images/DryMartini.png",
+    "image": "images/cocktails/DryMartini.png",
     "base": [
       "Gin",
       "Dry Vermouth"
@@ -53,7 +53,7 @@
   },
   {
     "name": "Manhattan",
-    "image": "cocktails/images/Manhattan.png",
+    "image": "images/cocktails/Manhattan.png",
     "base": [
       "Rye Whiskey",
       "Sweet Red Vermouth",
@@ -70,7 +70,7 @@
   },
   {
     "name": "New York Sour",
-    "image": "cocktails/images/NewYorkSour.png",
+    "image": "images/cocktails/NewYorkSour.png",
     "base": [
       "Bourbon Whiskey",
       "Red Wine"
@@ -87,7 +87,7 @@
   },
   {
     "name": "Daiquiri",
-    "image": "cocktails/images/Daiquiri.png",
+    "image": "images/cocktails/Daiquiri.png",
     "base": [
       "White Rum",
       "Lime Juice",
@@ -104,7 +104,7 @@
   },
   {
     "name": "Margarita",
-    "image": "cocktails/images/Margarita.png",
+    "image": "images/cocktails/Margarita.png",
     "base": [
       "Tequila",
       "Triple Sec",
@@ -122,7 +122,7 @@
   },
   {
     "name": "Espresso Martini",
-    "image": "cocktails/images/EspressoMartini.png",
+    "image": "images/cocktails/EspressoMartini.png",
     "base": [
       "Vodka",
       "Coffee Liqueur",
@@ -139,7 +139,7 @@
   },
   {
     "name": "Mojito",
-    "image": "cocktails/images/Mojito.png",
+    "image": "images/cocktails/Mojito.png",
     "base": [
       "White Rum",
       "Lime Juice",
@@ -158,7 +158,7 @@
   },
   {
     "name": "Gimlet",
-    "image": "cocktails/images/Gimlet.png",
+    "image": "images/cocktails/Gimlet.png",
     "base": [
       "Gin",
       "Lime Juice",
@@ -175,7 +175,7 @@
   },
   {
     "name": "Moscow Mule",
-    "image": "cocktails/images/Moscow_Mule.png",
+    "image": "images/cocktails/Moscow_Mule.png",
     "base": [
       "Vodka",
       "Lime Juice",
@@ -192,7 +192,7 @@
   },
   {
     "name": "Whiskey Sour",
-    "image": "cocktails/images/WhiskeySour.png",
+    "image": "images/cocktails/WhiskeySour.png",
     "base": [
       "Bourbon Whiskey",
       "Lemon Juice",
@@ -209,7 +209,7 @@
   },
   {
     "name": "Cosmopolitan",
-    "image": "cocktails/images/Cosmopolitan.png",
+    "image": "images/cocktails/Cosmopolitan.png",
     "base": [
       "Vodka Citron",
       "Cointreau",
@@ -227,7 +227,7 @@
   },
   {
     "name": "Dark ‘n Stormy",
-    "image": "cocktails/images/Dark_n_stormy.png",
+    "image": "images/cocktails/Dark_n_stormy.png",
     "base": [
       "Dark Rum",
       "Ginger Beer",
@@ -244,7 +244,7 @@
   },
   {
     "name": "Paloma",
-    "image": "cocktails/images/Paloma.png",
+    "image": "images/cocktails/Paloma.png",
     "base": [
       "Tequila",
       "Grapefruit Soda",
@@ -261,7 +261,7 @@
   },
   {
     "name": "Bee’s Knees",
-    "image": "cocktails/images/Bees_Knees.png",
+    "image": "images/cocktails/Bees_Knees.png",
     "base": [
       "Gin",
       "Lemon Juice",
@@ -278,7 +278,7 @@
   },
   {
     "name": "Gold Rush",
-    "image": "cocktails/images/Gold_Rush.png",
+    "image": "images/cocktails/Gold_Rush.png",
     "base": [
       "Bourbon",
       "Lemon Juice",
@@ -295,7 +295,7 @@
   },
   {
     "name": "French 75",
-    "image": "cocktails/images/French_75.png",
+    "image": "images/cocktails/French_75.png",
     "base": [
       "Gin",
       "Champagne",
@@ -313,7 +313,7 @@
   },
   {
     "name": "Bay Breeze",
-    "image": "cocktails/images/Bay_Breeze.png",
+    "image": "images/cocktails/Bay_Breeze.png",
     "base": [
       "Vodka",
       "Cranberry Juice",
@@ -330,7 +330,7 @@
   },
   {
     "name": "Black Russian",
-    "image": "cocktails/images/Black_Russian.png",
+    "image": "images/cocktails/Black_Russian.png",
     "base": [
       "Vodka",
       "Coffee Liqueur"
