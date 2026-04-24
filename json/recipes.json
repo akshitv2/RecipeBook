@@ -293,5 +293,33 @@
       "Toss in the air-fried tofu and green scallions, heating through just before serving"
     ],
     "image": "images/recipes/ChilliTofu.png"
-  }
+  },{
+  "id": 12,
+  "name": "Honey Garlic Chicken",
+  "time": "20 mins",
+  "description": "Sticky, tender boneless chicken thighs coated in a sweet and savory garlic, soy, and honey sauce.",
+  "ingredients": [
+    "8 skinless boneless chicken thighs, bite-sized",
+    "2 tbsp Cornflour (cornstarch)",
+    "1/2 tsp Salt and 1/2 tsp Pepper",
+    "2 tbsp Vegetable oil",
+    "1 tbsp Unsalted butter",
+    "4 cloves Garlic, minced",
+    "1/3 cup (110g) Honey",
+    "1/3 cup (80ml) Chicken stock",
+    "1 tbsp Rice vinegar",
+    "1 tbsp Light soy sauce"
+  ],
+  "recipe": [
+    "Toss chicken pieces in a bowl with cornflour, salt, and pepper until fully coated",
+    "Heat oil in a large skillet over high heat",
+    "Fry chicken until golden brown (approx. 4–5 mins on one side, 2 mins on the other)",
+    "Add butter to the pan to melt, then stir in minced garlic on medium heat",
+    "In a small bowl, whisk honey, stock, vinegar, and soy sauce",
+    "Pour sauce into the pan and bring to a boil",
+    "Simmer for 4–5 mins until the sauce thickens and chicken is cooked through",
+    "Serve with or without rice"
+  ],
+  "image": "images/recipes/HoneyGarlicChicken.png"
+}
 ]
