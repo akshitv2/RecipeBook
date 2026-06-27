@@ -394,5 +394,35 @@
       "Roll burrito-style and serve immediately, or pan-fry for 30 seconds per side for a crispy finish."
     ],
     "image": "images/recipes/BangBangChickenWrap.png"
+  },
+  {
+    "id": 16,
+    "name": "Shahi Paneer",
+    "time": "25 mins",
+    "description": "A rich and creamy restaurant-style paneer dish cooked in a velvety tomato-onion gravy infused with aromatic spices, cashews, and melon seeds.",
+    "ingredients": [
+      "250g Paneer, cubed",
+      "3 Onions, chopped",
+      "4 Tomatoes, chopped",
+      "10-12 Garlic cloves",
+      "3-4 Green chilies",
+      "2 Green cardamoms, 1 Black cardamom, and 2-3 Cloves",
+      "1 Bay leaf and 1 tbsp Cumin seeds",
+      "1/2 tsp Turmeric and 1 tbsp Kashmiri red chili powder",
+      "1 tbsp Coriander powder and 1 tbsp crushed Kasuri methi",
+      "10 Cashews and 3 tbsp Melon seeds",
+      "2 tbsp Milk powder and 1/2 cup Milk",
+      "3 tbsp Oil, 1 tsp Salt, and 1/2 tsp Sugar",
+      "Fresh coriander leaves"
+    ],
+    "recipe": [
+      "Boil onions, tomatoes, garlic, green chilies, cardamoms, cloves, and 1 cup water in a covered pan for 5-7 minutes; let cool and blend into a smooth puree.",
+      "Heat oil in a pan, add bay leaf, cumin seeds, turmeric, and red chili powder, then stir in the puree and salt and sauté for 5-7 minutes.",
+      "Blend cashews, melon seeds, milk powder, and milk into a smooth paste, then stir it into the cooking gravy.",
+      "Add coriander powder and Kasuri methi, pour in 1/2 cup water, cover, and simmer for 2-3 minutes.",
+      "Stir in the paneer cubes and simmer on low heat for 3-4 minutes.",
+      "Mix in the sugar, garnish with fresh coriander leaves, and serve hot."
+    ],
+    "image": "images/recipes/ShahiPaneer.png"
   }
 ]
