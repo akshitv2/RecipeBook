@@ -424,5 +424,32 @@
       "Mix in the sugar, garnish with fresh coriander leaves, and serve hot."
     ],
     "image": "images/recipes/ShahiPaneer.png"
+  },
+  {
+    "id": 17,
+    "name": "Mixed Veg Paneer Jalfrezi",
+    "time": "20 mins",
+    "description": "A vibrant and crunchy stir-fry featuring paneer, mushrooms, and assorted vegetables tossed with garlic and tomatoes in a dry, flavorful style.",
+    "ingredients": [
+      "Paneer, cubed",
+      "Mushrooms, sliced",
+      "Onions, cubed or chopped",
+      "Tomatoes, finely chopped",
+      "Garlic cloves, finely chopped",
+      "Carrots, diagonally sliced",
+      "Beans, diagonally sliced",
+      "Bell pepper, cubed",
+      "2 tbsp Oil or ghee",
+      "Salt and black pepper to taste"
+    ],
+    "recipe": [
+      "Heat 1 tbsp oil in a pan, sear the paneer cubes until lightly golden, then remove and set aside.",
+      "In the same pan on high heat, fry the mushrooms until browned and dry, then remove and set aside.",
+      "Add remaining oil, sauté the chopped garlic and onions until soft, then add tomatoes and cook down into a thick paste.",
+      "Toss in the carrots and beans with 2 tablespoons of water, cover, and steam on medium heat until fork-tender but crisp.",
+      "Turn the heat to high, add the bell peppers, cooked mushrooms, and seared paneer, and toss vigorously for 2-3 minutes.",
+      "Season with salt and black pepper, mix well, and serve hot."
+    ],
+    "image": "images/recipes/ShahiPaneer.png"
   }
 ]
