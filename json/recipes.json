@@ -451,5 +451,30 @@
       "Season with salt and black pepper, mix well, and serve hot."
     ],
     "image": "images/recipes/ShahiPaneer.png"
+  },
+  {
+    "id": 18,
+    "name": "Garlic Ginger Chicken Stir-Fry",
+    "time": "15 mins",
+    "description": "A high-protein, low-calorie stir-fry combining lean chicken breast with crisp broccoli and peppers in a savory garlic-ginger glaze.",
+    "ingredients": [
+      "Chicken breast",
+      "Broccoli florets",
+      "Bell pepper",
+      "Soy sauce (low sodium)",
+      "Sesame oil",
+      "Garlic",
+      "Fresh ginger"
+    ],
+    "recipe": [
+      "Cube the chicken breast, slice the bell pepper, and mince the garlic and ginger",
+      "Heat sesame oil in a non-stick skillet over medium-high heat",
+      "Add cubed chicken breast and cook until browned for 5-6 minutes",
+      "Add minced garlic and ginger and cook for 1 minute until fragrant",
+      "Add broccoli and bell pepper, tossing frequently for 4 minutes until tender-crisp",
+      "Stir in the soy sauce, cook for 1 final minute, and serve"
+    ],
+    "image": "images/recipes/Garlic_Ginger_Chicken_Stir_Fry.png"
+  },
   }
 ]
