@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Kitchen — Minimalist Recipe Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF9F6',
+                        charcoal: '#242424',
+                        terracotta: '#C85A32',
+                        'terracotta-hover': '#A84825',
+                        sand: '#F2EFE9',
+                        borderline: '#E6E4DF'
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF9F6;
+            color: #242424;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #E6E4DF;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-terracotta selection:text-white">
+
+<!-- Header -->
+<header class="border-b border-borderline sticky top-0 bg-cream/90 backdrop-blur-md z-30">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" onclick="closeDetail()" class="font-serif text-2xl tracking-tight font-bold hover:opacity-80 transition-opacity">
+            The Kitchen.
+        </a>
+        <div class="flex items-center space-x-6 text-sm text-charcoal/70">
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search recipes..."
+                    oninput="handleSearch()"
+                    class="bg-sand/60 border border-borderline rounded-full px-4 py-1.5 text-sm text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-terracotta transition-all w-40 sm:w-64"
+            />
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="max-w-6xl mx-auto px-6 pt-12 pb-8 border-b border-borderline w-full">
+    <p class="text-xs uppercase tracking-widest text-terracotta font-semibold mb-2">Curated Journal</p>
+    <h1 class="font-serif text-4xl sm:text-5xl font-normal text-charcoal max-w-2xl leading-tight">
+        Simple ingredients, thoughtful techniques.
+    </h1>
+</section>
+
+<!-- Main Container -->
+<main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full relative">
+
+    <!-- Recipe Grid View -->
+    <div id="recipeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <!-- Injected via Fetch -->
+    </div>
+
+    <!-- Empty / Error States -->
+    <div id="emptyState" class="hidden text-center py-20">
+        <p class="font-serif text-xl text-charcoal/60">No recipes matched your search.</p>
+    </div>
+
+    <div id="errorState" class="hidden text-center py-20">
+        <p class="font-serif text-xl text-terracotta">Unable to load data from <code class="font-mono text-sm bg-sand px-2 py-1 rounded">json/recipes.json</code>.</p>
+        <p class="text-sm text-charcoal/60 mt-2">Ensure the file exists at the specified relative path and is served over HTTP/HTTPS.</p>
+    </div>
+
+</main>
+
+<!-- Full-Page Overlay Detail View -->
+<div
+        id="detailOverlay"
+        class="fixed inset-0 bg-cream z-50 overflow-y-auto custom-scrollbar transform translate-y-full transition-transform duration-300 ease-in-out"
+>
+    <div class="max-w-3xl mx-auto px-6 py-10">
+
+        <!-- Sticky Close Nav -->
+        <div class="sticky top-0 bg-cream/90 backdrop-blur-md pt-2 pb-6 flex items-center justify-between border-b border-borderline z-10 mb-8">
+            <button
+                    onclick="closeDetail()"
+                    class="flex items-center text-sm font-medium text-charcoal/70 hover:text-terracotta transition-colors group"
+            >
+                <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to recipes
+            </button>
+            <span id="detailTimeBadge" class="text-xs font-semibold uppercase tracking-wider bg-sand px-3 py-1 rounded-full text-charcoal/80"></span>
+        </div>
+
+        <!-- Detail Content -->
+        <article>
+            <h1 id="detailTitle" class="font-serif text-3xl sm:text-5xl text-charcoal leading-tight font-normal mb-4"></h1>
+            <p id="detailDescription" class="text-lg text-charcoal/70 leading-relaxed font-serif italic mb-8"></p>
+
+            <!-- Recipe Image -->
+            <div id="detailImageWrapper" class="w-full h-72 sm:h-96 rounded-lg overflow-hidden bg-sand mb-12 border border-borderline">
+                <img id="detailImage" src="" alt="" class="w-full h-full object-cover" />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+
+                <!-- Ingredients Column -->
+                <div class="md:col-span-5">
+                    <div class="sticky top-24 border-t border-charcoal pt-4">
+                        <h2 class="font-serif text-xl font-bold mb-4 text-charcoal">Ingredients</h2>
+                        <ul id="detailIngredients" class="space-y-3">
+                            <!-- Ingredients injected here -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Instructions Column -->
+                <div class="md:col-span-7">
+                    <div class="border-t border-charcoal pt-4">
+                        <h2 class="font-serif text-xl font-bold mb-6 text-charcoal">Instructions</h2>
+                        <ol id="detailSteps" class="space-y-8">
+                            <!-- Steps injected here -->
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-borderline py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-6 text-center text-xs text-charcoal/50 font-serif">
+        The Kitchen &copy; 2026 — Minimalist Journal Layout
+    </div>
+</footer>
+
+<!-- Application Logic -->
+<script>
+    let recipesData = [];
+
+    const gridEl = document.getElementById('recipeGrid');
+    const overlayEl = document.getElementById('detailOverlay');
+    const emptyStateEl = document.getElementById('emptyState');
+    const errorStateEl = document.getElementById('errorState');
+
+    // Fetch JSON Dataset dynamically
+    async function fetchRecipes() {
+        try {
+            const response = await fetch('json/recipes.json');
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+            recipesData = await response.json();
+            renderGrid(recipesData);
+
+            // Check hash link on page load after data is available
+            if (window.location.hash.startsWith('#recipe-')) {
+                const id = parseInt(window.location.hash.replace('#recipe-', ''), 10);
+                openDetail(id);
+            }
+        } catch (error) {
+            console.error('Error fetching recipe dataset:', error);
+            gridEl.innerHTML = '';
+            errorStateEl.classList.remove('hidden');
+        }
+    }
+
+    // Render Grid Cards
+    function renderGrid(recipes) {
+        gridEl.innerHTML = '';
+        if (recipes.length === 0) {
+            emptyStateEl.classList.remove('hidden');
+            return;
+        }
+        emptyStateEl.classList.add('hidden');
+
+        recipes.forEach(recipe => {
+            const card = document.createElement('div');
+            card.className = 'group cursor-pointer flex flex-col justify-between border-b border-borderline pb-8 hover:opacity-95 transition-opacity';
+            card.onclick = () => openDetail(recipe.id);
+
+            const ingredientCount = Array.isArray(recipe.ingredients) ? recipe.ingredients.length : 0;
+
+            card.innerHTML = `
+          <div>
+            <div class="aspect-[16/10] overflow-hidden rounded-md bg-sand mb-4 border border-borderline">
+              <img src="${recipe.image || ''}" alt="${recipe.name || ''}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" onerror="this.src='https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80'" />
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-charcoal/60 mb-2 font-mono">
+              <span>${recipe.time || 'N/A'}</span>
+              <span>•</span>
+              <span>${ingredientCount} Ingredients</span>
+            </div>
+            <h3 class="font-serif text-2xl text-charcoal font-normal group-hover:text-terracotta transition-colors leading-snug mb-2">
+              ${recipe.name || 'Untitled Recipe'}
+            </h3>
+            <p class="text-sm text-charcoal/70 line-clamp-3 leading-relaxed">
+              ${recipe.description || ''}
+            </p>
+          </div>
+          <div class="mt-4 pt-2 text-xs font-semibold text-terracotta uppercase tracking-wider flex items-center">
+            View Recipe
+            <svg class="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </div>
+        `;
+            gridEl.appendChild(card);
+        });
+    }
+
+    // Open Detail View Dynamic In-Place
+    function openDetail(id) {
+        const recipe = recipesData.find(r => r.id === id);
+        if (!recipe) return;
+
+        document.getElementById('detailTitle').innerText = recipe.name || '';
+        document.getElementById('detailDescription').innerText = recipe.description || '';
+        document.getElementById('detailTimeBadge').innerText = recipe.time || 'N/A';
+
+        const imgEl = document.getElementById('detailImage');
+        imgEl.src = recipe.image || 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80';
+        imgEl.alt = recipe.name || '';
+
+        // Populate Ingredients with Checkbox Interactivity
+        const ingEl = document.getElementById('detailIngredients');
+        const ingredientsList = Array.isArray(recipe.ingredients) ? recipe.ingredients : [];
+        ingEl.innerHTML = ingredientsList.map((ing, idx) => `
+        <li class="flex items-start">
+          <input type="checkbox" id="ing-${idx}" class="mt-1 h-4 w-4 rounded border-borderline text-terracotta focus:ring-terracotta accent-terracotta cursor-pointer" />
+          <label for="ing-${idx}" class="ml-3 text-sm text-charcoal/80 leading-snug cursor-pointer select-none">
+            ${ing}
+          </label>
+        </li>
+      `).join('');
+
+        // Populate Steps
+        const stepsEl = document.getElementById('detailSteps');
+        const stepsList = Array.isArray(recipe.recipe) ? recipe.recipe : [];
+        stepsEl.innerHTML = stepsList.map((step, idx) => `
+        <li class="flex items-start">
+          <span class="font-serif text-2xl font-bold text-terracotta/40 mr-4 leading-none">${String(idx + 1).padStart(2, '0')}</span>
+          <p class="text-base text-charcoal/90 leading-relaxed pt-0.5">
+            ${step}
+          </p>
+        </li>
+      `).join('');
+
+        // Reveal Overlay & Adjust Body Scroll
+        overlayEl.classList.remove('translate-y-full');
+        document.body.style.overflow = 'hidden';
+        window.location.hash = `recipe-${id}`;
+    }
+
+    // Close Detail View
+    function closeDetail() {
+        overlayEl.classList.add('translate-y-full');
+        document.body.style.overflow = '';
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+
+    // Filter Logic
+    function handleSearch() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = recipesData.filter(r =>
+            (r.name && r.name.toLowerCase().includes(query)) ||
+            (r.description && r.description.toLowerCase().includes(query)) ||
+            (Array.isArray(r.ingredients) && r.ingredients.some(i => i.toLowerCase().includes(query)))
+        );
+        renderGrid(filtered);
+    }
+
+    // Keyboard navigation (ESC to close)
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDetail();
+    });
+
+    // Initialize application
+    window.addEventListener('load', fetchRecipes);
+</script>
+</body>
+</html>
