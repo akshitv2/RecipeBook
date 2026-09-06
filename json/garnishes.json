@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Garlic Butter Herb Paste",
+    "base_and_flavor": "Melted butter (or olive oil) + minced garlic + dried oregano + thyme + salt & black pepper.",
+    "why_it_works": "Butter penetrates the protein surface, creating a crisp exterior while sealing in natural juices."
+  },
+  {
+    "id": 2,
+    "name": "Classic Indian Tandoori Marinade",
+    "base_and_flavor": "Thick yogurt (hung curd/Greek yogurt) + mustard oil + ginger-garlic paste + kashmiri red chili powder + garam masala + kasuri methi + lemon juice.",
+    "why_it_works": "Yogurt acts as a thermal shield, locking moisture inside both chicken and paneer."
+  },
+  {
+    "id": 3,
+    "name": "Honey Soy Garlic Glaze",
+    "base_and_flavor": "Soy sauce + olive oil + honey + minced garlic + grated ginger + dash of sesame oil.",
+    "why_it_works": "The honey caramelizes rapidly on the edges, while soy sauce caramelization builds a savory crust."
+  },
+  {
+    "id": 4,
+    "name": "Creamy Chipotle Lime",
+    "base_and_flavor": "Mayonnaise or Greek yogurt + chipotle chili powder (or smoked paprika) + garlic powder + lime juice + pinch of cumin.",
+    "why_it_works": "Mayo is an emulsion of oil and egg yolk; air frying it leaves a rich, moist layer without tasting greasy."
+  },
+  {
+    "id": 5,
+    "name": "Spicy Peanut Satay",
+    "base_and_flavor": "Smooth peanut butter + soy sauce + warm water (to thin) + chili oil/sriracha + lime juice + garlic powder.",
+    "why_it_works": "Fats in peanut butter melt over the protein, creating a thick, rich coating that prevents drying out."
+  },
+  {
+    "id": 6,
+    "name": "Mediterranean Lemon Oregano",
+    "base_and_flavor": "Extra virgin olive oil + fresh lemon juice + minced garlic + dried oregano + onion powder + salt.",
+    "why_it_works": "Acid breaks down tough outer proteins while olive oil locks in juices."
+  },
+  {
+    "id": 7,
+    "name": "Sesame Teriyaki Sticky Toss",
+    "base_and_flavor": "Teriyaki sauce + neutral oil + sesame seeds + garlic powder + splash of rice vinegar.",
+    "why_it_works": "High-sugar sauces brown quickly; toss with a little oil mid-way through cooking to avoid burning while staying juicy."
+  },
+  {
+    "id": 8,
+    "name": "Green Peri Peri Punch",
+    "base_and_flavor": "Store-bought or homemade Peri Peri seasoning + olive oil + splash of vinegar or lemon juice + minced cilantro/coriander.",
+    "why_it_works": "Acid plus oil provides a sharp flavor hit while creating a zesty protective layer."
+  },
+  {
+    "id": 9,
+    "name": "Pesto Mayo Crust",
+    "base_and_flavor": "Prepared basil pesto + mayonnaise (1:1 ratio) + cracked black pepper.",
+    "why_it_works": "Pesto's olive oil and pine nut fats combine with mayo to give a crunchy green crust over juicy meat or paneer."
+  },
+  {
+    "id": 10,
+    "name": "Sweet Thai Chili Sesame",
+    "base_and_flavor": "Sweet chili sauce + soy sauce + neutral oil + toasted sesame oil + pinch of red pepper flakes.",
+    "why_it_works": "Forms a glossy sticky glaze that seals in moisture as air circulates."
+  }
+]

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Kitchen — Minimalist Recipe Collection</title>
+    <title>The Kitchen — Recipes & Flavorings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -47,50 +47,79 @@
 <!-- Header -->
 <header class="border-b border-borderline sticky top-0 bg-cream/90 backdrop-blur-md z-30">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" onclick="closeDetail()" class="font-serif text-2xl tracking-tight font-bold hover:opacity-80 transition-opacity">
+        <a href="#" onclick="switchTab('recipes')" class="font-serif text-2xl tracking-tight font-bold hover:opacity-80 transition-opacity">
             The Kitchen.
         </a>
         <div class="flex items-center space-x-6 text-sm text-charcoal/70">
             <input
                     type="text"
                     id="searchInput"
-                    placeholder="Search recipes..."
+                    placeholder="Search..."
                     oninput="handleSearch()"
-                    class="bg-sand/60 border border-borderline rounded-full px-4 py-1.5 text-sm text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-terracotta transition-all w-40 sm:w-64"
+                    class="bg-sand/60 border border-borderline rounded-full px-4 py-1.5 text-sm text-charcoal placeholder-charcoal/40 focus:outline-none focus:ring-1 focus:ring-terracotta transition-all w-36 sm:w-64"
             />
         </div>
     </div>
 </header>
 
+<!-- Navigation Tabs -->
+<div class="border-b border-borderline bg-cream sticky top-20 z-20">
+    <div class="max-w-6xl mx-auto px-6 flex space-x-8">
+        <button
+                id="tabBtnRecipes"
+                onclick="switchTab('recipes')"
+                class="py-4 text-sm font-medium border-b-2 border-charcoal text-charcoal transition-colors tracking-wide"
+        >
+            Recipes
+        </button>
+        <button
+                id="tabBtnGarnishes"
+                onclick="switchTab('garnishes')"
+                class="py-4 text-sm font-medium border-b-2 border-transparent text-charcoal/50 hover:text-charcoal transition-colors tracking-wide"
+        >
+            Garnishes & Flavorings
+        </button>
+    </div>
+</div>
+
 <!-- Hero Section -->
-<section class="max-w-6xl mx-auto px-6 pt-12 pb-8 border-b border-borderline w-full">
-    <p class="text-xs uppercase tracking-widest text-terracotta font-semibold mb-2">Curated Journal</p>
-    <h1 class="font-serif text-4xl sm:text-5xl font-normal text-charcoal max-w-2xl leading-tight">
+<section class="max-w-6xl mx-auto px-6 pt-10 pb-6 border-b border-borderline w-full">
+    <p id="heroLabel" class="text-xs uppercase tracking-widest text-terracotta font-semibold mb-2">Curated Journal</p>
+    <h1 id="heroTitle" class="font-serif text-3xl sm:text-5xl font-normal text-charcoal max-w-2xl leading-tight">
         Simple ingredients, thoughtful techniques.
     </h1>
 </section>
 
-<!-- Main Container -->
+<!-- Main Content Area -->
 <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full relative">
 
-    <!-- Recipe Grid View -->
-    <div id="recipeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-        <!-- Injected via Fetch -->
+    <!-- Tab 1: Recipe Grid View -->
+    <div id="recipesContainer">
+        <div id="recipeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            <!-- Injected via Fetch -->
+        </div>
+    </div>
+
+    <!-- Tab 2: Garnishes & Flavorings List View (Non-card, Editorial Table/List Style) -->
+    <div id="garnishesContainer" class="hidden">
+        <div id="garnishesList" class="divide-y divide-borderline border-t border-b border-borderline">
+            <!-- Injected via Fetch -->
+        </div>
     </div>
 
     <!-- Empty / Error States -->
     <div id="emptyState" class="hidden text-center py-20">
-        <p class="font-serif text-xl text-charcoal/60">No recipes matched your search.</p>
+        <p class="font-serif text-xl text-charcoal/60">No matches found for your search.</p>
     </div>
 
     <div id="errorState" class="hidden text-center py-20">
-        <p class="font-serif text-xl text-terracotta">Unable to load data from <code class="font-mono text-sm bg-sand px-2 py-1 rounded">json/recipes.json</code>.</p>
-        <p class="text-sm text-charcoal/60 mt-2">Ensure the file exists at the specified relative path and is served over HTTP/HTTPS.</p>
+        <p id="errorMessage" class="font-serif text-xl text-terracotta">Unable to load requested dataset.</p>
+        <p class="text-sm text-charcoal/60 mt-2">Ensure the JSON files exist in the <code class="font-mono text-sm bg-sand px-2 py-1 rounded">json/</code> directory and are served over HTTP/HTTPS.</p>
     </div>
 
 </main>
 
-<!-- Full-Page Overlay Detail View -->
+<!-- Full-Page Overlay Detail View (For Recipes) -->
 <div
         id="detailOverlay"
         class="fixed inset-0 bg-cream z-50 overflow-y-auto custom-scrollbar transform translate-y-full transition-transform duration-300 ease-in-out"
@@ -122,14 +151,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
-
                 <!-- Ingredients Column -->
                 <div class="md:col-span-5">
                     <div class="sticky top-24 border-t border-charcoal pt-4">
                         <h2 class="font-serif text-xl font-bold mb-4 text-charcoal">Ingredients</h2>
-                        <ul id="detailIngredients" class="space-y-3">
-                            <!-- Ingredients injected here -->
-                        </ul>
+                        <ul id="detailIngredients" class="space-y-3"></ul>
                     </div>
                 </div>
 
@@ -137,12 +163,9 @@
                 <div class="md:col-span-7">
                     <div class="border-t border-charcoal pt-4">
                         <h2 class="font-serif text-xl font-bold mb-6 text-charcoal">Instructions</h2>
-                        <ol id="detailSteps" class="space-y-8">
-                            <!-- Steps injected here -->
-                        </ol>
+                        <ol id="detailSteps" class="space-y-8"></ol>
                     </div>
                 </div>
-
             </div>
         </article>
 
@@ -152,41 +175,99 @@
 <!-- Footer -->
 <footer class="border-t border-borderline py-8 mt-12">
     <div class="max-w-6xl mx-auto px-6 text-center text-xs text-charcoal/50 font-serif">
-        The Kitchen &copy; 2026 — Minimalist Journal Layout
+        The Kitchen &copy; 2026 — Minimalist Recipe & Culinary Journal
     </div>
 </footer>
 
 <!-- Application Logic -->
 <script>
     let recipesData = [];
+    let garnishesData = [];
+    let activeTab = 'recipes';
 
     const gridEl = document.getElementById('recipeGrid');
+    const garnishesListEl = document.getElementById('garnishesList');
+    const recipesContainer = document.getElementById('recipesContainer');
+    const garnishesContainer = document.getElementById('garnishesContainer');
     const overlayEl = document.getElementById('detailOverlay');
     const emptyStateEl = document.getElementById('emptyState');
     const errorStateEl = document.getElementById('errorState');
+    const errorMessageEl = document.getElementById('errorMessage');
 
-    // Fetch JSON Dataset dynamically
+    // Tab Switcher
+    function switchTab(tab) {
+        activeTab = tab;
+        document.getElementById('searchInput').value = '';
+        emptyStateEl.classList.add('hidden');
+        errorStateEl.classList.add('hidden');
+
+        const btnRecipes = document.getElementById('tabBtnRecipes');
+        const btnGarnishes = document.getElementById('tabBtnGarnishes');
+        const heroLabel = document.getElementById('heroLabel');
+        const heroTitle = document.getElementById('heroTitle');
+
+        if (tab === 'recipes') {
+            btnRecipes.className = 'py-4 text-sm font-medium border-b-2 border-charcoal text-charcoal transition-colors tracking-wide';
+            btnGarnishes.className = 'py-4 text-sm font-medium border-b-2 border-transparent text-charcoal/50 hover:text-charcoal transition-colors tracking-wide';
+
+            heroLabel.innerText = 'Curated Journal';
+            heroTitle.innerText = 'Simple ingredients, thoughtful techniques.';
+
+            recipesContainer.classList.remove('hidden');
+            garnishesContainer.classList.add('hidden');
+            renderGrid(recipesData);
+        } else {
+            btnGarnishes.className = 'py-4 text-sm font-medium border-b-2 border-charcoal text-charcoal transition-colors tracking-wide';
+            btnRecipes.className = 'py-4 text-sm font-medium border-b-2 border-transparent text-charcoal/50 hover:text-charcoal transition-colors tracking-wide';
+
+            heroLabel.innerText = 'Flavor Science';
+            heroTitle.innerText = 'Marinades, glazes, and finishing touches.';
+
+            recipesContainer.classList.add('hidden');
+            garnishesContainer.classList.remove('hidden');
+
+            if (garnishesData.length === 0) {
+                fetchGarnishes();
+            } else {
+                renderGarnishes(garnishesData);
+            }
+        }
+    }
+
+    // Fetch Recipes
     async function fetchRecipes() {
         try {
             const response = await fetch('json/recipes.json');
             if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-
             recipesData = await response.json();
             renderGrid(recipesData);
 
-            // Check hash link on page load after data is available
             if (window.location.hash.startsWith('#recipe-')) {
                 const id = parseInt(window.location.hash.replace('#recipe-', ''), 10);
                 openDetail(id);
             }
         } catch (error) {
-            console.error('Error fetching recipe dataset:', error);
-            gridEl.innerHTML = '';
+            console.error('Error fetching recipes dataset:', error);
+            errorMessageEl.innerText = 'Unable to load data from json/recipes.json';
             errorStateEl.classList.remove('hidden');
         }
     }
 
-    // Render Grid Cards
+    // Fetch Garnishes
+    async function fetchGarnishes() {
+        try {
+            const response = await fetch('json/garnishes.json');
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+            garnishesData = await response.json();
+            renderGarnishes(garnishesData);
+        } catch (error) {
+            console.error('Error fetching garnishes dataset:', error);
+            errorMessageEl.innerText = 'Unable to load data from json/garnishes.json';
+            errorStateEl.classList.remove('hidden');
+        }
+    }
+
+    // Render Recipe Grid
     function renderGrid(recipes) {
         gridEl.innerHTML = '';
         if (recipes.length === 0) {
@@ -230,7 +311,49 @@
         });
     }
 
-    // Open Detail View Dynamic In-Place
+    // Render Garnishes (Non-card, Editorial Table/List Style)
+    function renderGarnishes(garnishes) {
+        garnishesListEl.innerHTML = '';
+        if (garnishes.length === 0) {
+            emptyStateEl.classList.remove('hidden');
+            return;
+        }
+        emptyStateEl.classList.add('hidden');
+
+        garnishes.forEach((item, index) => {
+            const row = document.createElement('div');
+            row.className = 'py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-sand/30 transition-colors px-2 rounded-sm';
+
+            row.innerHTML = `
+          <!-- Number & Name -->
+          <div class="md:col-span-4 flex items-baseline space-x-4">
+            <span class="font-serif text-2xl font-bold text-terracotta/40 font-mono">${String(index + 1).padStart(2, '0')}</span>
+            <h3 class="font-serif text-xl font-normal text-charcoal leading-snug">
+              ${item.name}
+            </h3>
+          </div>
+
+          <!-- Base & Flavorings -->
+          <div class="md:col-span-4">
+            <h4 class="text-xs uppercase tracking-wider font-semibold text-charcoal/50 mb-1.5">Base & Flavorings</h4>
+            <p class="text-sm text-charcoal/90 leading-relaxed font-sans bg-sand/60 p-3 rounded border border-borderline">
+              ${item.base_and_flavor}
+            </p>
+          </div>
+
+          <!-- Why It Works -->
+          <div class="md:col-span-4">
+            <h4 class="text-xs uppercase tracking-wider font-semibold text-terracotta mb-1.5">Why It Works</h4>
+            <p class="text-sm text-charcoal/70 leading-relaxed font-serif italic">
+              "${item.why_it_works}"
+            </p>
+          </div>
+        `;
+            garnishesListEl.appendChild(row);
+        });
+    }
+
+    // Open Recipe Detail View Overlay
     function openDetail(id) {
         const recipe = recipesData.find(r => r.id === id);
         if (!recipe) return;
@@ -243,7 +366,6 @@
         imgEl.src = recipe.image || 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80';
         imgEl.alt = recipe.name || '';
 
-        // Populate Ingredients with Checkbox Interactivity
         const ingEl = document.getElementById('detailIngredients');
         const ingredientsList = Array.isArray(recipe.ingredients) ? recipe.ingredients : [];
         ingEl.innerHTML = ingredientsList.map((ing, idx) => `
@@ -255,7 +377,6 @@
         </li>
       `).join('');
 
-        // Populate Steps
         const stepsEl = document.getElementById('detailSteps');
         const stepsList = Array.isArray(recipe.recipe) ? recipe.recipe : [];
         stepsEl.innerHTML = stepsList.map((step, idx) => `
@@ -267,7 +388,6 @@
         </li>
       `).join('');
 
-        // Reveal Overlay & Adjust Body Scroll
         overlayEl.classList.remove('translate-y-full');
         document.body.style.overflow = 'hidden';
         window.location.hash = `recipe-${id}`;
@@ -280,18 +400,28 @@
         history.pushState("", document.title, window.location.pathname + window.location.search);
     }
 
-    // Filter Logic
+    // Dynamic Search Filter
     function handleSearch() {
         const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = recipesData.filter(r =>
-            (r.name && r.name.toLowerCase().includes(query)) ||
-            (r.description && r.description.toLowerCase().includes(query)) ||
-            (Array.isArray(r.ingredients) && r.ingredients.some(i => i.toLowerCase().includes(query)))
-        );
-        renderGrid(filtered);
+
+        if (activeTab === 'recipes') {
+            const filtered = recipesData.filter(r =>
+                (r.name && r.name.toLowerCase().includes(query)) ||
+                (r.description && r.description.toLowerCase().includes(query)) ||
+                (Array.isArray(r.ingredients) && r.ingredients.some(i => i.toLowerCase().includes(query)))
+            );
+            renderGrid(filtered);
+        } else {
+            const filtered = garnishesData.filter(g =>
+                (g.name && g.name.toLowerCase().includes(query)) ||
+                (g.base_and_flavor && g.base_and_flavor.toLowerCase().includes(query)) ||
+                (g.why_it_works && g.why_it_works.toLowerCase().includes(query))
+            );
+            renderGarnishes(filtered);
+        }
     }
 
-    // Keyboard navigation (ESC to close)
+    // Global Key Events
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeDetail();
     });
